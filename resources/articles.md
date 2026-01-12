@@ -38,7 +38,7 @@ Important articles, blog posts, documentation, and references about Claude Code 
 ## Community Resources
 
 ### Twitter/X Threads
-- **[Matt Pocock on Ralph Loop](https://x.com/mattpocockuk/status/2008200878633931247?s=20)** - Insights on autonomous coding patterns
+- **[Matt Pocock on Ralph Loop](https://x.com/mattpocockuk)** - Insights on autonomous coding patterns
 
 ---
 

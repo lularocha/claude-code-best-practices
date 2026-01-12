@@ -19,7 +19,7 @@ A curated list of prominent developers, educators, and thought leaders in the AI
 
 ### Matt Pocock
 - **Website**: [aihero.dev](https://www.aihero.dev/)
-- **Twitter**: [@mattpocockuk](https://x.com/mattpocockuk/status/2008200878633931247?s=20)
+- **Twitter**: [@mattpocockuk](https://x.com/mattpocockuk)
 - **Focus**: AI-assisted development, TypeScript, and coding education
 
 ## Educators & Content Creators
@@ -45,3 +45,4 @@ To add a new person:
 1. Choose the appropriate category
 2. Use the format: Name, links, and description
 3. Include why they're notable in this space
+4. For Twitter/X links: Always link to the profile page (e.g., https://x.com/username), never to specific posts
