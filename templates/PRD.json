@@ -1,0 +1,25 @@
+{
+  "project": "Project Name",
+  "description": "Brief description of the project",
+  "tasks": [
+    {
+      "id": 1,
+      "description": "First task description",
+      "passes": false
+    },
+    {
+      "id": 2,
+      "description": "Second task description",
+      "passes": false
+    },
+    {
+      "id": 3,
+      "description": "Third task description",
+      "passes": false
+    }
+  ],
+  "notes": [
+    "Add any project-wide notes or constraints here",
+    "These notes are visible to Claude during all iterations"
+  ]
+}
