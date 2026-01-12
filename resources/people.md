@@ -3,7 +3,10 @@
 A curated list of prominent developers, educators, and thought leaders in the AI and Claude Code space.
 
 ## Format
-**Name** - [Link/Channel] - Brief description of their work
+Each entry includes:
+- **Name**
+- **Links** (Twitter, Website, etc.)
+- **Description** - Brief description of their work and why they're notable
 
 ---
 
@@ -11,20 +14,20 @@ A curated list of prominent developers, educators, and thought leaders in the AI
 
 ### Andrej Karpathy
 - **Twitter**: [@karpathy](https://x.com/karpathy)
-- **Focus**: Previously Director of AI @ Tesla, founding team @ OpenAI, CS231n/PhD @ Stanford
+- **Description**: Previously Director of AI @ Tesla, founding team @ OpenAI, CS231n/PhD @ Stanford
 
 ### Geoffrey Huntley
 - **Twitter**: [@GeoffreyHuntley](https://x.com/GeoffreyHuntley)
-- **Focus**: Creator of the original Ralph Wiggum bash loop technique for autonomous Claude Code execution
+- **Description**: Creator of the original Ralph Wiggum bash loop technique for autonomous Claude Code execution
 
 ### Boris Cherny
 - **Twitter**: [@bcherny](https://x.com/bcherny)
-- **Focus**: Advanced Claude Code workflows and setup examples
+- **Description**: Advanced Claude Code workflows and setup examples
 
 ### Matt Pocock
 - **Website**: [aihero.dev](https://www.aihero.dev/)
 - **Twitter**: [@mattpocockuk](https://x.com/mattpocockuk)
-- **Focus**: AI-assisted development, TypeScript, and coding education
+- **Description**: AI-assisted development, TypeScript, and coding education
 
 ## Educators & Content Creators
 
@@ -32,14 +35,14 @@ A curated list of prominent developers, educators, and thought leaders in the AI
 - **YouTube**: Videos on Claude Code best practices and workflows
 - **Notable Content**: [Video on Boris Cherny setup](https://www.youtube.com/watch?v=AkG-BZ-708U)
 - **Notable Content**: [Working with Claude Code Desktop](https://www.youtube.com/watch?v=pZ2N7CJFbBk)
-- **Focus**: Practical tutorials on Claude Code features, slash commands, and project setup
+- **Description**: Practical tutorials on Claude Code features, slash commands, and project setup
 
 ## Writers & Technical Authors
 
 ### Joe Njenga
 - **Medium**: [@joe.njenga](https://medium.com/@joe.njenga)
 - **Notable Article**: [Ralph Wiggum: Claude Code's new way to run autonomously](https://medium.com/@joe.njenga/ralph-wiggum-claude-code-new-way-to-run-autonomously-for-hours-without-drama-095f47fbd467)
-- **Focus**: Technical deep-dives on Claude Code features and techniques
+- **Description**: Technical deep-dives on Claude Code features and techniques
 
 ---
 
