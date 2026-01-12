@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code Best Practices</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e1e4e8;
+            padding: 1rem 2rem;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            display: flex;
+            gap: 2rem;
+            padding: 1rem 2rem;
+            background: #f0f0f0;
+            border-bottom: 2px solid white;
+        }
+
+        .top-nav button {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            color: #000000;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .top-nav button:hover {
+            background: #e1e4e8;
+            text-decoration: underline;
+        }
+
+        .top-nav button.active {
+            background: #ffffff;
+            color: #f60;
+            font-weight: 600;
+        }
+
+        /* Main Layout */
+        .container {
+            display: flex;
+            height: calc(100vh - 140px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: #f0f0f0;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+
+        .sidebar h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #24292e;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar a {
+            color: #000000;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .sidebar a:hover {
+            background: #e1e4e8;
+            text-decoration: underline;
+        }
+
+        .sidebar a.active {
+            background: #ffffff;
+            color: #f60;
+            font-weight: 600;
+        }
+
+        /* Content Area */
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 2rem 3rem;
+            background: #fff;
+        }
+
+        /* Markdown Styling */
+        .content h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e1e4e8;
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content h3 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* People names in orange for AI People page */
+        .content.people-page h3 {
+            color: #f60;
+        }
+
+        .content h4 {
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+        }
+
+        .content ul, .content ol {
+            margin-bottom: 1rem;
+            margin-left: 2rem;
+        }
+
+        .content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .content a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .content a:hover {
+            text-decoration: underline;
+        }
+
+        .content code {
+            background: #f6f8fa;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.9em;
+        }
+
+        .content pre {
+            background: #f6f8fa;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        .content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .content blockquote {
+            border-left: 4px solid #dfe2e5;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: #6a737d;
+        }
+
+        .content hr {
+            border: none;
+            border-top: 1px solid #e1e4e8;
+            margin: 2rem 0;
+        }
+
+        /* Loading State */
+        .loading {
+            color: #6a737d;
+            font-style: italic;
+        }
+
+        /* Empty State */
+        .empty-state {
+            color: #6a737d;
+            text-align: center;
+            padding: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Claude Code Best Practices</h1>
+    </header>
+
+    <nav class="top-nav">
+        <button data-category="guides" class="active">Guides</button>
+        <button data-category="resources">Resources</button>
+        <button data-category="templates">Templates</button>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2 id="sidebar-title">Guides</h2>
+            <ul id="file-list"></ul>
+        </aside>
+
+        <main class="content" id="content">
+            <div class="loading">Loading...</div>
+        </main>
+    </div>
+
+    <script>
+        // File structure mapping
+        const fileStructure = {
+            guides: [
+                { name: 'Claude Code Best Practices', path: 'guides/cc-best-practices.md' },
+                { name: 'Ralph Loop Plugin', path: 'guides/ralph-loop-plugin.md' }
+            ],
+            resources: [
+                { name: 'AI People', path: 'resources/people.md' },
+                { name: 'Tools & Plugins', path: 'resources/tools.md' },
+                { name: 'Articles & References', path: 'resources/articles.md' }
+            ],
+            templates: [
+                { name: 'PROMPT.md Template', path: 'templates/PROMPT.md' },
+                { name: 'PRD.json Template', path: 'templates/PRD.json' }
+            ]
+        };
+
+        let currentCategory = 'guides';
+        let currentFile = null;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            setupNavigation();
+            renderSidebar('guides');
+            loadFile(fileStructure.guides[0].path);
+        });
+
+        // Setup top navigation
+        function setupNavigation() {
+            const navButtons = document.querySelectorAll('.top-nav button');
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const category = button.dataset.category;
+
+                    // Update active state
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Update sidebar
+                    currentCategory = category;
+                    renderSidebar(category);
+
+                    // Load first file in category
+                    if (fileStructure[category].length > 0) {
+                        loadFile(fileStructure[category][0].path);
+                    }
+                });
+            });
+        }
+
+        // Render sidebar based on category
+        function renderSidebar(category) {
+            const sidebarTitle = document.getElementById('sidebar-title');
+            const fileList = document.getElementById('file-list');
+
+            // Update title
+            sidebarTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+
+            // Clear and populate file list
+            fileList.innerHTML = '';
+            fileStructure[category].forEach(file => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#';
+                a.textContent = file.name;
+                a.dataset.path = file.path;
+
+                a.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    // Update active state
+                    document.querySelectorAll('.sidebar a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    a.classList.add('active');
+
+                    // Load file
+                    loadFile(file.path);
+                });
+
+                li.appendChild(a);
+                fileList.appendChild(li);
+            });
+
+            // Set first item as active
+            const firstLink = fileList.querySelector('a');
+            if (firstLink) {
+                firstLink.classList.add('active');
+            }
+        }
+
+        // Load and render markdown file
+        async function loadFile(path) {
+            const content = document.getElementById('content');
+            content.innerHTML = '<div class="loading">Loading...</div>';
+            currentFile = path;
+
+            try {
+                const response = await fetch(path);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${path}`);
+                }
+
+                const markdown = await response.text();
+                const html = marked.parse(markdown);
+                content.innerHTML = html;
+
+                // Add special class for people page to style names in orange
+                if (path === 'resources/people.md') {
+                    content.classList.add('people-page');
+                } else {
+                    content.classList.remove('people-page');
+                }
+            } catch (error) {
+                content.innerHTML = `
+                    <div class="empty-state">
+                        <p>Failed to load file: ${path}</p>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
