@@ -39,7 +39,6 @@ Important articles, blog posts, documentation, and references about Claude Code 
 
 ### Twitter/X Threads
 - **[Matt Pocock on Ralph Loop](https://x.com/mattpocockuk/status/2008200878633931247?s=20)** - Insights on autonomous coding patterns
-- **[Boris Cherny Chrome Extension Setup](https://x.com/bcherny/status/2007179861115511237?s=20)** - Visual verification workflow
 
 ---
 

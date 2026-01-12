@@ -47,15 +47,6 @@ Slash commands can save significant time by automating repetitive tasks.
 
 - "Make me a slash command that commits and pushes all our code to github"
 
-## Give Claude a Way to Verify Results
-
-Use the Claude Code Chrome Extension to let Claude see what's happening in your browser and verify its work.
-
-**Resources:**
-
-- [Chrome Extension Documentation](https://code.claude.com/docs/en/chrome)  
-- [Boris Cherny's setup example](https://x.com/bcherny/status/2007179861115511237?s=20)
-
 ## Verify the Work Done (Diligence)
 
 After completing a section or significant work, ask Claude to verify everything.

@@ -6,11 +6,6 @@ Useful tools, extensions, plugins, and integrations for Claude Code.
 
 ## Official Tools
 
-### Claude Code Chrome Extension
-- **Documentation**: [code.claude.com/docs/en/chrome](https://code.claude.com/docs/en/chrome)
-- **Purpose**: Allows Claude to see your browser and verify its work in real-time
-- **Use Cases**: Testing web apps, debugging UI issues, verifying visual changes
-
 ### Ralph Loop Plugin
 - **Type**: Official Claude Code plugin (originally a bash script by Geoffrey Huntley)
 - **Purpose**: Runs Claude Code autonomously in a loop until task completion

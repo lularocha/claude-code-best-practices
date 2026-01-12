@@ -15,8 +15,7 @@ A curated list of prominent developers, educators, and thought leaders in the AI
 
 ### Boris Cherny
 - **Twitter**: [@bcherny](https://x.com/bcherny)
-- **Focus**: Advanced Claude Code workflows, browser extension integration, setup examples
-- **Notable**: [Chrome extension setup example](https://x.com/bcherny/status/2007179861115511237?s=20)
+- **Focus**: Advanced Claude Code workflows and setup examples
 
 ### Matt Pocock
 - **Website**: [aihero.dev](https://www.aihero.dev/)
