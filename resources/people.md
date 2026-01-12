@@ -45,4 +45,4 @@ To add a new person:
 1. Choose the appropriate category
 2. Use the format: Name, links, and description
 3. Include why they're notable in this space
-4. For Twitter/X links: Always link to the profile page (e.g., https://x.com/username), never to specific posts
+4. For Twitter profile fields: Always link to the profile page (e.g., https://x.com/username), never to specific posts

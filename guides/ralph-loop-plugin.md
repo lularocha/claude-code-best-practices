@@ -200,7 +200,7 @@ They're separate so you can reuse the same PROMPT.md across different projects, 
 
 Matt Pocock
 [https://www.aihero.dev/](https://www.aihero.dev/)
-[https://x.com/mattpocockuk](https://x.com/mattpocockuk)
+[https://x.com/mattpocockuk/status/2010045508765782433?s=20](https://x.com/mattpocockuk/status/2010045508765782433?s=20)
 
 Joe Njenga on Medium  
 [https://medium.com/@joe.njenga/ralph-wiggum-claude-code-new-way-to-run-autonomously-for-hours-without-drama-095f47fbd467](https://medium.com/@joe.njenga/ralph-wiggum-claude-code-new-way-to-run-autonomously-for-hours-without-drama-095f47fbd467)
