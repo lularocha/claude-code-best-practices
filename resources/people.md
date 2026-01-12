@@ -9,6 +9,10 @@ A curated list of prominent developers, educators, and thought leaders in the AI
 
 ## Developers & Engineers
 
+### Andrej Karpathy
+- **Twitter**: [@karpathy](https://x.com/karpathy)
+- **Focus**: Previously Director of AI @ Tesla, founding team @ OpenAI, CS231n/PhD @ Stanford
+
 ### Geoffrey Huntley
 - **Twitter**: [@GeoffreyHuntley](https://x.com/GeoffreyHuntley)
 - **Focus**: Creator of the original Ralph Wiggum bash loop technique for autonomous Claude Code execution
