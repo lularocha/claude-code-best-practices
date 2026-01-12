@@ -32,7 +32,7 @@ Each entry includes:
 ## Educators & Content Creators
 
 ### Alex Finn
-- **YouTube**: Videos on Claude Code best practices and workflows
+- **YouTube**: [@AlexFinnOfficial](https://www.youtube.com/@AlexFinnOfficial)
 - **Notable Content**: [Video on Boris Cherny setup](https://www.youtube.com/watch?v=AkG-BZ-708U)
 - **Notable Content**: [Working with Claude Code Desktop](https://www.youtube.com/watch?v=pZ2N7CJFbBk)
 - **Description**: Practical tutorials on Claude Code features, slash commands, and project setup
