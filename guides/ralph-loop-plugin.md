@@ -15,16 +15,16 @@ Geoffrey Huntley on Twitter: https://x.com/GeoffreyHuntley
 
 The technique was originally created by Geoffrey Huntley as a simple bash loop, and Anthropic later formalized it into an official Claude Code plugin.
 
-**A plugin that runs Claude Code in a loop, iterating on a task until verifiable completion criteria are met — enabling autonomous, unsupervised coding.**
+**One-liner:** A plugin that runs Claude Code in a loop, iterating on a task until verifiable completion criteria are met — enabling autonomous, unsupervised coding.
 
 **In other words: it makes Claude Code keep trying until the job is done.**
 
-**Use it with PROMPT.md or PRD Files (more info and examples below)**
+**Use it with PROMPT.md or PRD (Product Requirements Document) Files**
 
-* PROMPT.md 	\= Good for single-scope tasks  
-* PRD Files 	\= Good for multi-task projects
+* **PROMPT.md** \= Good for single-scope tasks  
+* **PRD.json** 	\= Good for multi-task projects
 
-Best: Integrate both PROMPT.md and PRD File
+**Best use: Integrate both PROMPT.md and PRD File**
 
 * **PROMPT.md** \= the rules (how to work)  
 * **PRD.json** \= the work (what to do)
