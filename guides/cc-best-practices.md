@@ -6,13 +6,11 @@
 
 Think of Claude Code as a conversation with an AGI person, not just a tool. Before accepting any answer, ask for clarification or have the model ask you questions to ensure both you and Claude have a clear understanding of the task and the plan to accomplish it.
 
-## Claude Instructions (CLAUDE.md)
+## CLAUDE.md (Claude Instructions)
 
-**Location:** Root of your project folder (or parent directory for all projects)
+**Location:** Root of your project folder or parent directory for all projects.
 
-**Source:** Based on Alex Finn [video on Boris Cherny setup](https://www.youtube.com/watch?v=AkG-BZ-708U)
-
-You can also use Settings \> Personal Preferences for global instructions.
+[Learn more about CLAUDE.md](CLAUDE.md)
 
 ### **Instructions:**
 
