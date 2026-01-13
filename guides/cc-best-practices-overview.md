@@ -10,7 +10,7 @@ Think of Claude Code as a conversation with an AGI person, not just a tool. Befo
 
 **Location:** Root of your project folder or parent directory for all projects.
 
-### **Example:**
+### Example:
 This example is Claude's refined version of Alex Finn instructions shown in his [Claude Code Desktop Tutorial](https://www.youtube.com/watch?v=pZ2N7CJFbBk).
 
 1. Think through problems, read the codebase first
@@ -24,6 +24,7 @@ This example is Claude's refined version of Alex Finn instructions shown in his 
 9. Give grounded, hallucination-free answers
 10. Run tests after making changes to verify nothing broke
 
+---
 Note: We can do better than that, [learn more about CLAUDE.md](claude-md-guide.md)
 
 ## Work in Plan Mode
