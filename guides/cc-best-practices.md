@@ -12,7 +12,8 @@ Think of Claude Code as a conversation with an AGI person, not just a tool. Befo
 
 [Learn more about CLAUDE.md](claude-md-guide.md)
 
-### **Instructions:**
+### **Example from Alex Finn Tutorial**
+(Note: we can do better and Alex exagerates a bit, anyway <a href="https://www.youtube.com/watch?v=pZ2N7CJFbBk" target="_blank">here is Alex's tutorial</a>.)
 
 1. First think through the problem, read the codebase for relevant files.  
 2. Before you make any major changes, check in with me and I will verify the plan.  
