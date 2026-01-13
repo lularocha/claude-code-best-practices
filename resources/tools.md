@@ -6,15 +6,7 @@ Useful tools, extensions, plugins, and integrations for Claude Code.
 
 ## Official Tools
 
-### Ralph Loop Plugin
-- **Type**: Official Claude Code plugin (originally a bash script by Geoffrey Huntley)
-- **Purpose**: Runs Claude Code autonomously in a loop until task completion
-- **Documentation**: See [ralph-loop-plugin.md](../guides/ralph-loop-plugin.md) for detailed guide
-- **Key Features**:
-  - Autonomous iteration on tasks
-  - Built-in completion criteria
-  - Max-iterations safety limit
-  - Works with PROMPT.md and PRD.json files
+_Will add more info as I get a better understanding of most useful tools._
 
 ---
 
