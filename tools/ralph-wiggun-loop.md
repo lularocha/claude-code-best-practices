@@ -9,213 +9,224 @@ Geoffrey Huntley on Twitter: https://x.com/GeoffreyHuntley
 
 ---
 
-**Ralph Wiggum** is a technique for Claude Code that makes the AI work autonomously in a loop until a task is complete. "Ralph is a Bash Loop \- Geoffrey Huntley"
+## What It Is ?
 
-**The core idea:** instead of giving Claude one shot at a task and hoping it gets it right, you run it repeatedly on the same task. Each time it runs, it sees its previous work (via git history and modified files), learns from what broke, and tries again until it succeeds.
+**Ralph Wiggun Loop** is a technique for running Claude Code autonomously in a loop until a task is complete.
 
-The technique was originally created by Geoffrey Huntley as a simple bash loop, and Anthropic later formalized it into an official Claude Code plugin.
+> "Ralph is a Bash Loop" — Geoffrey Huntley
 
-**One-liner:** A plugin that runs Claude Code in a loop, iterating on a task until verifiable completion criteria are met — enabling autonomous, unsupervised coding.
+### The Core Concept
 
-**In other words: it makes Claude Code keep trying until the job is done.**
+Instead of giving Claude one shot at a task and hoping it gets it right, you run it repeatedly on the same task. Each time it runs, Claude sees its previous work (via git history and modified files), learns from what broke, and tries again until it succeeds.
 
-**Use it with PROMPT.md or PRD (Product Requirements Document) Files**
+### Why It Works
 
-* **PROMPT.md** \= Good for single-scope tasks  
-* **PRD.json** 	\= Good for multi-task projects
+- **Iterative learning**: Claude can see what failed and fix it
+- **Git history**: Each loop iteration can review previous attempts
+- **Feedback loops**: Tests, linting, and type checking provide clear signals
+- **Autonomous execution**: No manual intervention needed between iterations
 
-**Best use: Integrate both PROMPT.md and PRD File**
+### Key Principles
 
-* **PROMPT.md** \= the rules (how to work)  
-* **PRD.json** \= the work (what to do)
-
-## Creating and using the PROMPT
-
-1. **Define a clear, scoped task**
-
-   Don't give it vague or massive tasks. Break work into specific, completable pieces. Good: "Add unit tests to all functions in src/utils/". Bad: "Build me an app".
-
-2. **Set strong completion criteria**
-
-   Give Claude a way to verify it's actually done — ideally something testable like "all tests pass" and "no TypeScript errors". The completion promise should only be output when that criteria is met.
-
-3. **Use feedback loops**
-
-   The technique works best when Claude can verify its own work. TypeScript type checking, unit tests, linting — anything that gives Claude clear pass/fail signals to learn from.
-
-4. **Always set a max-iterations limit**
-
-   This is your safety net to prevent runaway loops and cost overruns.
-
-5. **Run in a git-tracked directory**
-
-   So you can revert if something goes wrong, and so Claude can see the history of what it changed.
-
-**/ralph-loop**   
-"\[TASK\] \+ \[FEEDBACK INSTRUCTION\] \+ \[GIT INSTRUCTION\] \+ \[COMPLETION CRITERIA\]" \--max-iterations X \--completion-promise "YOUR\_PROMISE"
-
-**Example (Command/Prompt:**
-
-/ralph-loop "Build a contact form component with fields for name, email, and message. Include validation (required fields, valid email format). Write unit tests for the validation logic. Run tests and type check after each change. Commit after all tests pass and there are no type errors. If all tests pass, type check passes, and the component renders without errors, output \<promise\>COMPLETE\</promise\>." \--max-iterations 15 \--completion-promise "COMPLETE"
-
-**What happens:**
-
-1. Claude creates the component and tests  
-2. Claude runs the tests  
-3. Tests fail (maybe validation logic is wrong)  
-4. Claude tries to exit → Stop hook blocks it  
-5. Claude sees the test failures, fixes the code  
-6. Runs tests again  
-7. Tests pass → Claude commits the changes  
-8. Repeats until all work is complete  
-9. Claude outputs `<promise>COMPLETE</promise>`  
-10. Loop ends
-
-## PROMPT.md
-
-Instead of writing a long prompt inline in the command, you **put instructions in a file and reference it**.
-
-Example:
-
-\# Task  
-Build a contact form component for a portfolio website.
-
-\#\# Requirements  
-\- Fields: name, email, message  
-\- Validation: all fields required, email must be valid format  
-\- Display error messages below each invalid field
-
-\#\# Instructions  
-\- Work on one requirement at a time  
-\- Write unit tests for validation logic  
-\- Run tests after each change  
-\- Commit after each passing test run  
-\- If all tests pass and the component renders without errors, output \<promise\>COMPLETE\</promise\>
-
-**How to use it**  
-/ralph-loop \--prompt PROMPT.md \--max-iterations 15 \--completion-promise "COMPLETE"
-
-## PRD File (JSON)
-
-A structured list of tasks to complete  
-Dynamic — Claude updates it as tasks are completed
-
-**Example/JSON**  
-{  
-  "project": "Portfolio Contact Form",  
-  "tasks": \[  
-    {  
-      "id": 1,  
-      "description": "Create basic ContactForm component with name, email, message fields",  
-      "passes": false  
-    },  
-       {  
-      "id": 3,  
-      "description": "Display error messages below invalid fields",  
-      "passes": false  
-    },  
-    {  
-      "id": 3,  
-      "description": "Write unit tests for all validation logic",  
-      "passes": false  
-    }  
-  \]  
-}
-
-**How Claude uses it:**
-
-1. Claude reads the PRD  
-2. Picks the first task with `"passes": false`  
-3. Completes that one task only  
-4. Runs tests  
-5. If tests pass → updates `"passes": true` and commits  
-6. Loop continues → Claude picks the next incomplete task  
-7. Repeats until all tasks have `"passes": true`
+1. **Clear completion criteria** — Claude needs to know when it's truly done (e.g., "all tests pass")
+2. **Scoped tasks** — Break work into specific, completable pieces
+3. **Safety limits** — Always set a maximum iteration count
+4. **Git tracking** — Run in a git repository so you can revert if needed
 
 ---
 
-**Why use this?**
+## How to Use It ?
 
-* Prevents Claude from trying to do everything at once (avoids context window overload)  
-* Tracks progress across multiple loop iterations  
-* You can see exactly what's done and what's left
+### Basic Bash Loop
 
-## PROMPT.md \+ PRD File
+The simplest implementation is a bash script that repeatedly calls `claude-code` until completion:
 
-**PROMPT.md** (the instructions):
+```bash
+#!/bin/bash
 
-\# Contact Form Development
+MAX_ITERATIONS=10
+PROMPT="Your task description here. When complete, output DONE on a single line."
 
-\#\# How to work  
-1\. Read PRD.json to find the next task with "passes": false  
-2\. Work on ONLY that single task  
-3\. Write or update tests for the task  
-4\. Run tests after each change  
-5\. If tests pass:  
-   \- Update the task's "passes" to true in PRD.json  
-   \- Commit with message: "Complete task \#\[id\]: \[description\]"  
-6\. If all tasks in PRD.json have "passes": true, output \<promise\>COMPLETE\</promise\>
+for i in $(seq 1 $MAX_ITERATIONS); do
+  echo "Iteration $i of $MAX_ITERATIONS"
 
-**PRD.json** (the task list):
+  OUTPUT=$(echo "$PROMPT" | claude-code)
+  echo "$OUTPUT"
 
-{  
-  "project": "Portfolio Contact Form",  
-  "tasks": \[  
-    {  
-      "id": 1,  
-      "description": "Create basic ContactForm component with name, email, message fields",  
-      "passes": false  
-    },  
-    {  
-      "id": 2,  
-      "description": "Add validation logic for required fields",  
-      "passes": false  
-    },  
-    {  
-      "id": 3,  
-      "description": "Add email format validation",  
-      "passes": false  
-    }  
-  \]  
+  # Check if Claude signals completion
+  if echo "$OUTPUT" | grep -q "DONE"; then
+    echo "Task completed successfully!"
+    exit 0
+  fi
+
+  # Brief pause between iterations
+  sleep 2
+done
+
+echo "Max iterations reached. Task may be incomplete."
+exit 1
+```
+
+### Writing Effective Prompts
+
+Your prompt should include:
+
+1. **The task** — What needs to be done
+2. **Completion criteria** — How Claude knows it's finished
+3. **Feedback instructions** — What to check after each change (tests, builds, etc.)
+4. **Git instructions** — When to commit
+
+**Example prompt:**
+
+```
+Add unit tests for all functions in src/utils/parser.js.
+
+Instructions:
+- Write one test file at a time
+- Run tests after each file: npm test
+- Fix any failures before moving to the next file
+- Commit after each passing test file
+- When ALL functions have tests and ALL tests pass, output: DONE
+
+Completion criteria:
+- Test coverage for all functions
+- All tests passing
+- No errors or warnings
+```
+
+### Using PROMPT.md Files
+
+Instead of inline prompts, put instructions in a file:
+
+**PROMPT.md:**
+```markdown
+# Task
+Add form validation to the contact form
+
+## Requirements
+- Validate email format
+- Require all fields
+- Show error messages
+
+## Process
+1. Write validation logic
+2. Add error message display
+3. Write tests for validation
+4. Run: npm test
+5. Fix any failures
+6. When tests pass, commit and output: DONE
+```
+
+**Bash script:**
+```bash
+#!/bin/bash
+MAX_ITERATIONS=15
+PROMPT=$(cat PROMPT.md)
+
+for i in $(seq 1 $MAX_ITERATIONS); do
+  echo "Iteration $i"
+  OUTPUT=$(echo "$PROMPT" | claude-code)
+  echo "$OUTPUT"
+
+  if echo "$OUTPUT" | grep -q "DONE"; then
+    echo "Complete!"
+    exit 0
+  fi
+  sleep 2
+done
+```
+
+### Using PRD Files for Multi-Task Projects
+
+For larger projects, use a JSON file to track multiple tasks:
+
+**PRD.json:**
+```json
+{
+  "project": "Contact Form Feature",
+  "tasks": [
+    {
+      "id": 1,
+      "description": "Create ContactForm component",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "description": "Add field validation",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "description": "Add error message display",
+      "completed": false
+    }
+  ]
 }
+```
 
-**The Command**
+**PROMPT.md:**
+```markdown
+# Instructions
 
-/ralph-loop \--prompt PROMPT.md \--max-iterations 20 \--completion-promise "COMPLETE"
+1. Read PRD.json
+2. Find the first task where "completed": false
+3. Work on ONLY that task
+4. Run tests when done
+5. If tests pass:
+   - Update the task's "completed" to true in PRD.json
+   - Commit with message: "Complete task #[id]: [description]"
+6. When ALL tasks are completed, output: DONE
+```
 
-**What happens:**
+### Best Practices
 
-1. Claude reads PROMPT.md → learns how to work  
-2. Claude reads PRD.json → finds task \#1 (`"passes": false`)  
-3. Completes task \#1, runs tests  
-4. Tests pass → updates PRD.json (`"passes": true`), commits  
-5. Loop continues → Claude finds task \#2  
-6. Repeats for each task  
-7. All tasks complete → outputs `<promise>COMPLETE</promise>`  
-8. Loop ends
+1. **Start small** — Test with 3-5 iterations first
+2. **Use git** — Always work in a git repository
+3. **Set limits** — Don't let loops run indefinitely
+4. **Verify completion** — Make sure Claude has a clear way to signal "done"
+5. **Use tests** — Automated tests give Claude the best feedback
+6. **Review output** — Check what happened after the loop finishes
 
----
+### Example: Complete Working Script
 
-### The key insight
+```bash
+#!/bin/bash
 
-* **PROMPT.md** \= the rules (how to work)  
-* **PRD.json** \= the work (what to do)
+MAX_ITERATIONS=20
+TASK="Fix all TypeScript errors in src/ directory. Run 'npm run type-check' after each fix. When there are zero errors, output: DONE"
 
-They're separate so you can reuse the same PROMPT.md across different projects, just swap the PRD.
+echo "Starting Ralph Loop..."
+echo "Task: $TASK"
+echo "Max iterations: $MAX_ITERATIONS"
+echo "---"
+
+for i in $(seq 1 $MAX_ITERATIONS); do
+  echo ""
+  echo "=== Iteration $i of $MAX_ITERATIONS ==="
+
+  OUTPUT=$(echo "$TASK" | claude-code 2>&1)
+
+  echo "$OUTPUT"
+
+  # Check for completion signal
+  if echo "$OUTPUT" | grep -q "DONE"; then
+    echo ""
+    echo "✓ Task completed successfully on iteration $i"
+    git log -1 --oneline
+    exit 0
+  fi
+
+  # Pause between iterations
+  sleep 3
+done
+
+echo ""
+echo "✗ Max iterations reached. Check git log for progress."
+exit 1
+```
 
 ---
 
 ## References
 
-Matt Pocock
-[https://www.aihero.dev/](https://www.aihero.dev/)
-[https://x.com/mattpocockuk/status/2010045508765782433?s=20](https://x.com/mattpocockuk/status/2010045508765782433?s=20)
-
-Joe Njenga on Medium  
-[https://medium.com/@joe.njenga/ralph-wiggum-claude-code-new-way-to-run-autonomously-for-hours-without-drama-095f47fbd467](https://medium.com/@joe.njenga/ralph-wiggum-claude-code-new-way-to-run-autonomously-for-hours-without-drama-095f47fbd467)
-
-Anthropic blog \- Effective Harnesses for long running agents  
-[https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)
-
-Geoffrey Huntley  
-[https://x.com/GeoffreyHuntley](https://x.com/GeoffreyHuntley)  
+**Geoffrey Huntley** — [https://x.com/GeoffreyHuntley](https://x.com/GeoffreyHuntley)  
