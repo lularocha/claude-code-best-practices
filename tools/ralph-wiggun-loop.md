@@ -143,7 +143,7 @@ for i in $(seq 1 $MAX_ITERATIONS); do
 done
 ```
 
-### Using PRD Files for Multi-Task Projects
+### Using PRD (Product Requirements Document) Files for Multi-Task Projects
 
 For larger projects, use a JSON file to track multiple tasks:
 
