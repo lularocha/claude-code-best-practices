@@ -10,20 +10,21 @@ Think of Claude Code as a conversation with an AGI person, not just a tool. Befo
 
 **Location:** Root of your project folder or parent directory for all projects.
 
-[Learn more about CLAUDE.md](claude-md-guide.md)
+### **Example:**
+This example is Claude's refined version of Alex Finn instructions shown in his [Claude Code Desktop Tutorial](https://www.youtube.com/watch?v=pZ2N7CJFbBk).
 
-### **Example from Alex Finn Tutorial**
-(Note: we can do better and Alex exagerates a bit, anyway <a href="https://www.youtube.com/watch?v=pZ2N7CJFbBk" target="_blank">here is Alex's tutorial</a>.)
+1. Think through problems, read the codebase first
+2. Check in before major changes
+3. Ask clarifying questions
+4. Give high-level explanations of changes
+5. Keep changes simple and minimal
+6. Maintain architecture documentation
+7. Never speculate about unread code
+8. Read relevant files before answering codebase questions
+9. Give grounded, hallucination-free answers
+10. Run tests after making changes to verify nothing broke
 
-1. First think through the problem, read the codebase for relevant files.  
-2. Before you make any major changes, check in with me and I will verify the plan.  
-3. Ask me questions for you to better understand what I want to accomplish and how.  
-4. Please every step of the way just give me a high level explanation of what changes you made.  
-5. Make every task and code change you do as simple as possible. We want to avoid making any massive or complex changes. Every change should impact as little code as possible. Everything is about simplicity.  
-6. Maintain a documentation file that describes how the architecture of the app works inside and out.  
-7. Never speculate about code you have not opened. If the user references a specific file, you MUST read the file before answering.  
-8. Make sure to investigate and read relevant files BEFORE answering questions about the codebase.  
-9. Never make any claims about code before investigating unless you are certain of the correct answer \- give grounded and hallucination-free answers.
+Note: We can do better than that, [learn more about CLAUDE.md](claude-md-guide.md)
 
 ## Work in Plan Mode
 
