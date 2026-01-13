@@ -530,12 +530,62 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             setupNavigation();
-            renderSidebar('guides');
-            loadFile(fileStructure.guides[0].path);
-
-            // Setup mobile navigation
             setupMobileNavigation();
+
+            // Load from URL hash or default to first file
+            loadFromHash() || loadFile(fileStructure.guides[0].path);
+
+            // Handle browser back/forward
+            window.addEventListener('hashchange', () => {
+                loadFromHash();
+            });
         });
+
+        // Parse URL hash and load the corresponding file
+        function loadFromHash() {
+            const hash = window.location.hash.slice(1); // Remove '#'
+            if (!hash) return false;
+
+            // Find which category contains this file
+            for (const [category, files] of Object.entries(fileStructure)) {
+                const file = files.find(f => f.path === hash);
+                if (file) {
+                    currentCategory = category;
+                    renderSidebar(category);
+                    updateTopNavActive(category);
+                    loadFile(file.path, false); // false = don't update hash again
+                    updateSidebarActive(file.path);
+                    updateMobileMenuActive(category, file.path);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Update top navigation active state
+        function updateTopNavActive(category) {
+            document.querySelectorAll('.top-nav button').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.category === category);
+            });
+        }
+
+        // Update sidebar active state
+        function updateSidebarActive(path) {
+            document.querySelectorAll('.sidebar a').forEach(link => {
+                link.classList.toggle('active', link.dataset.path === path);
+            });
+        }
+
+        // Update mobile menu active state
+        function updateMobileMenuActive(category, path) {
+            document.querySelectorAll('.mobile-submenu-item').forEach(item => {
+                item.classList.toggle('active', item.dataset.path === path);
+            });
+            document.querySelectorAll('.mobile-section-header').forEach(header => {
+                const sectionCategory = header.textContent.toLowerCase();
+                header.classList.toggle('active', sectionCategory === category);
+            });
+        }
 
         // Setup top navigation
         function setupNavigation() {
@@ -602,10 +652,15 @@
         }
 
         // Load and render markdown file
-        async function loadFile(path) {
+        async function loadFile(path, updateHash = true) {
             const content = document.getElementById('content');
             content.innerHTML = '<div class="loading">Loading...</div>';
             currentFile = path;
+
+            // Update URL hash for shareable links
+            if (updateHash && window.location.hash !== '#' + path) {
+                history.pushState(null, '', '#' + path);
+            }
 
             try {
                 const response = await fetch(path);
