@@ -528,7 +528,10 @@
             setupMobileNavigation();
 
             // Load from URL hash or default to first file
-            loadFromHash() || loadFile(fileStructure.guides[0].path);
+            if (!loadFromHash()) {
+                renderSidebar('guides');
+                loadFile(fileStructure.guides[0].path);
+            }
 
             // Handle browser back/forward
             window.addEventListener('hashchange', () => {
