@@ -1,4 +1,4 @@
-# Claude Code Best Practices
+# Best Practices Overview
 
 ## AGI Mindset
 
