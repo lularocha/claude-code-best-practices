@@ -22,7 +22,7 @@ Each entry includes:
 
 ### Boris Cherny
 - **Twitter**: [@bcherny](https://x.com/bcherny)
-- **Description**: Advanced Claude Code workflows and setup examples
+- **Description**: Creator of Claude Code
 
 ### Matt Pocock
 - **Website**: [aihero.dev](https://www.aihero.dev/)
