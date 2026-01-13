@@ -4,24 +4,24 @@ A curated list of prominent developers, educators, and thought leaders in the AI
 
 ## Developers & Engineers
 
-### Andrej Karpathy
-- **Twitter**: [@karpathy](https://x.com/karpathy)
-- **Description**: Previously Director of AI @ Tesla, founding team @ OpenAI, CS231n/PhD @ Stanford
+### Boris Cherny
+- **Twitter**: [@bcherny](https://x.com/bcherny)
+- **Description**: Creator of Claude Code
 
 ### Geoffrey Huntley
 - **Twitter**: [@GeoffreyHuntley](https://x.com/GeoffreyHuntley)
 - **Description**: Creator of the original Ralph Wiggum bash loop technique for autonomous Claude Code execution
 
-### Boris Cherny
-- **Twitter**: [@bcherny](https://x.com/bcherny)
-- **Description**: Creator of Claude Code
+### Andrej Karpathy
+- **Twitter**: [@karpathy](https://x.com/karpathy)
+- **Description**: Previously Director of AI @ Tesla, founding team @ OpenAI, CS231n/PhD @ Stanford
+
+## Educators & Content Creators
 
 ### Matt Pocock
 - **Website**: [aihero.dev](https://www.aihero.dev/)
 - **Twitter**: [@mattpocockuk](https://x.com/mattpocockuk)
 - **Description**: AI-assisted development, TypeScript, and coding education
-
-## Educators & Content Creators
 
 ### Alex Finn
 - **YouTube**: [@AlexFinnOfficial](https://www.youtube.com/@AlexFinnOfficial)
