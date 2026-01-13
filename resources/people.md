@@ -2,12 +2,6 @@
 
 A curated list of prominent developers, educators, and thought leaders in the AI and Claude Code space.
 
-## Format
-Each entry includes:
-- **Name**
-- **Links** (Twitter, Website, etc.)
-- **Description** - Brief description of their work and why they're notable
-
 ---
 
 ## Developers & Engineers
