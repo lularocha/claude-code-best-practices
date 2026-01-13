@@ -10,7 +10,7 @@ Think of Claude Code as a conversation with an AGI person, not just a tool. Befo
 
 **Location:** Root of your project folder or parent directory for all projects.
 
-[Learn more about CLAUDE.md](CLAUDE.md)
+[Learn more about CLAUDE.md](claude-md-guide.md)
 
 ### **Instructions:**
 
