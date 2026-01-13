@@ -1,15 +1,15 @@
-# Ralph Wiggun \- Loop Plugin
+# Ralph Wiggun Loop
 
 ## IMPORTANT NOTE
 
-**Don't use Anthropic's version, use the original Geoffrey Huntley vision**
+**Don't use Anthropic's plugin version, use the original Geoffrey Huntley vision**
 
 More info: https://x.com/gmickel/status/2009939771171434867
 Geoffrey Huntley on Twitter: https://x.com/GeoffreyHuntley
 
 ---
 
-**Ralph Wiggum** is a technique/plugin for Claude Code that makes the AI work autonomously in a loop until a task is complete. "Ralph is a Bash Loop \- Geoffrey Huntley"
+**Ralph Wiggum** is a technique for Claude Code that makes the AI work autonomously in a loop until a task is complete. "Ralph is a Bash Loop \- Geoffrey Huntley"
 
 **The core idea:** instead of giving Claude one shot at a task and hoping it gets it right, you run it repeatedly on the same task. Each time it runs, it sees its previous work (via git history and modified files), learns from what broke, and tries again until it succeeds.
 
