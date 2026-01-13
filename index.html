@@ -490,7 +490,6 @@
         <button data-category="guides" class="active">Guides</button>
         <button data-category="resources">Resources</button>
         <button data-category="tools">Tools</button>
-        <button data-category="templates">Templates</button>
     </nav>
 
     <div class="container">
@@ -517,10 +516,6 @@
             ],
             tools: [
                 { name: 'Ralph Wiggun Loop', path: 'tools/ralph-wiggun-loop.md' }
-            ],
-            templates: [
-                { name: 'PROMPT.md Template', path: 'templates/PROMPT.md' },
-                { name: 'PRD.json Template', path: 'templates/PRD.json' }
             ]
         };
 
@@ -671,6 +666,12 @@
                 const markdown = await response.text();
                 const html = marked.parse(markdown);
                 content.innerHTML = html;
+
+                // Make external links open in new tab
+                content.querySelectorAll('a[href^="http"]').forEach(link => {
+                    link.setAttribute('target', '_blank');
+                    link.setAttribute('rel', 'noopener noreferrer');
+                });
 
                 // Handle internal .md links to use JavaScript navigation
                 content.querySelectorAll('a[href$=".md"]').forEach(link => {
