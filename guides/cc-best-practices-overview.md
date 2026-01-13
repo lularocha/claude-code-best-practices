@@ -4,7 +4,7 @@
 
 **AGI (Artificial General Intelligence)** refers to AI systems that can understand, learn, and perform any intellectual task that a human can do, across different domains without being specifically trained for each one.
 
-Think of Claude Code as a conversation with an AGI person, not just a tool. Before accepting any answer, ask for clarification or have the model ask you questions to ensure both you and Claude have a clear understanding of the task and the plan to accomplish it.
+Think of Claude Code as a conversation with an AGI person, not just a tool. Before accepting any answer, ask for clarification or have the model ask you questions to ensure both you and Claude have a clear understanding of the task and the plan to accomplish it. Just like discussing a project with a work collegue.
 
 ## CLAUDE.md (Claude Instructions)
 
