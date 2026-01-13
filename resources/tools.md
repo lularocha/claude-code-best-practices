@@ -8,6 +8,8 @@ Useful tools, extensions, plugins, and integrations for Claude Code.
 
 _Will add more info as I get a better understanding of most useful tools._
 
+> Add Tools you find useful here
+
 ---
 
 ## MCP Servers
