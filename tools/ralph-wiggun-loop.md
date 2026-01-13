@@ -21,10 +21,17 @@ Instead of giving Claude one shot at a task and hoping it gets it right, you run
 
 ### Why It Works
 
-- **Iterative learning**: Claude can see what failed and fix it
-- **Git history**: Each loop iteration can review previous attempts
-- **Feedback loops**: Tests, linting, and type checking provide clear signals
+- **Fresh context per iteration**: Each loop starts with a clean slate. Claude doesn't accumulate unnecessary conversation history or context pollution from previous attempts. The git history and file changes provide all the context needed.
+- **Iterative learning**: Claude can see what failed and fix it by examining git history and error messages
+- **Feedback loops**: Tests, linting, and type checking provide clear pass/fail signals
 - **Autonomous execution**: No manual intervention needed between iterations
+
+#### Advantages
+
+- **No context pollution**: Unlike a long single session where the conversation history keeps growing with failed attempts, explanations, and dead-end explorations
+- **Efficient context usage**: Only the relevant information (current code state + git history + the task prompt) is in context
+- **No token waste**: You don't pay for accumulated conversation context from previous failed attempts
+- **Clear signal-to-noise ratio**: Claude only sees what matters - the current code state and the task
 
 ### Key Principles
 
