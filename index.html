@@ -352,6 +352,29 @@
                 const html = marked.parse(markdown);
                 content.innerHTML = html;
 
+                // Handle internal .md links to use JavaScript navigation
+                content.querySelectorAll('a[href$=".md"]').forEach(link => {
+                    const href = link.getAttribute('href');
+                    // Only handle relative links (not external URLs)
+                    if (!href.startsWith('http')) {
+                        link.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            // Resolve relative path based on current file's directory
+                            const currentDir = currentFile.substring(0, currentFile.lastIndexOf('/') + 1);
+                            const targetPath = currentDir + href;
+                            loadFile(targetPath);
+
+                            // Update sidebar active state if the target exists in sidebar
+                            document.querySelectorAll('.sidebar a').forEach(sidebarLink => {
+                                sidebarLink.classList.remove('active');
+                                if (sidebarLink.dataset.path === targetPath) {
+                                    sidebarLink.classList.add('active');
+                                }
+                            });
+                        });
+                    }
+                });
+
                 // Add special class for people page to style names in orange
                 if (path === 'resources/people.md') {
                     content.classList.add('people-page');
