@@ -965,32 +965,39 @@
                 scrollToTopBtn.classList.remove('visible');
             }
 
-            // Smoothly adjust button position when footer is visible
-            const footerRect = footer.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
+            // Smoothly adjust button position when footer is visible (mobile only)
+            const isMobile = window.innerWidth <= 1024;
 
-            // Calculate how much of the footer is visible (0 to 1)
-            let footerVisibility = 0;
-            if (footerRect.top < viewportHeight) {
-                const visibleHeight = Math.min(viewportHeight - footerRect.top, footerRect.height);
-                footerVisibility = Math.max(0, Math.min(1, visibleHeight / footerRect.height));
+            if (isMobile) {
+                const footerRect = footer.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+
+                // Calculate how much of the footer is visible (0 to 1)
+                let footerVisibility = 0;
+                if (footerRect.top < viewportHeight) {
+                    const visibleHeight = Math.min(viewportHeight - footerRect.top, footerRect.height);
+                    footerVisibility = Math.max(0, Math.min(1, visibleHeight / footerRect.height));
+                }
+
+                // Interpolate between 2rem (32px) and 6.5rem based on visibility
+                // Start moving at 20% visibility, reach full offset at 80% visibility
+                const startThreshold = 0.2;
+                const endThreshold = 0.8;
+                let progress = 0;
+
+                if (footerVisibility > startThreshold) {
+                    progress = Math.min(1, (footerVisibility - startThreshold) / (endThreshold - startThreshold));
+                }
+
+                const minBottom = 2; // 2rem
+                const maxBottom = 6.5; // 6.5rem
+                const bottomPosition = minBottom + (progress * (maxBottom - minBottom));
+
+                scrollToTopBtn.style.bottom = `${bottomPosition}rem`;
+            } else {
+                // Desktop: keep button at 2rem
+                scrollToTopBtn.style.bottom = '2rem';
             }
-
-            // Interpolate between 2rem (32px) and 6rem (96px) based on visibility
-            // Start moving at 20% visibility, reach full offset at 80% visibility
-            const startThreshold = 0.2;
-            const endThreshold = 0.8;
-            let progress = 0;
-
-            if (footerVisibility > startThreshold) {
-                progress = Math.min(1, (footerVisibility - startThreshold) / (endThreshold - startThreshold));
-            }
-
-            const minBottom = 2; // 2rem
-            const maxBottom = 6.5; // 6.5rem
-            const bottomPosition = minBottom + (progress * (maxBottom - minBottom));
-
-            scrollToTopBtn.style.bottom = `${bottomPosition}rem`;
         }
 
         // Listen to both content area and window scroll (handles desktop and mobile)
