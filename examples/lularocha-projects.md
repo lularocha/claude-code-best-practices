@@ -1,6 +1,6 @@
 # My Projects
 
-A showcase of projects and examples I built using Claude Code .
+A showcase of projects built with Claude Code, some completed, others still in development.
 
 ## [Prompt Builder](https://sugiro-prompt.vercel.app/)
 
