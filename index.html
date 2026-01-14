@@ -242,6 +242,26 @@
             padding: 3rem;
         }
 
+        /* Footer */
+        footer {
+            background: #f4f4f4;
+            padding: 2rem;
+            border-top: 1px solid #e1e4e8;
+            font-family: "Inter", sans-serif;
+        }
+
+        footer .footer-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        footer .footer-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
         /* Hamburger Button - Hidden by default, shown on mobile */
         #hamburger-btn {
             display: none;
@@ -520,6 +540,11 @@
                 max-width: 100%;
                 height: auto;
             }
+
+            /* Center footer text on mobile */
+            footer {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -566,6 +591,11 @@
             <div class="loading">Loading...</div>
         </main>
     </div>
+
+    <footer>
+        <div class="footer-title">Lula Rocha + Claude</div>
+        <div class="footer-description">I'm using this website to document best practices and insights from my learning journey with Claude.</div>
+    </footer>
 
     <script>
         // File structure mapping
