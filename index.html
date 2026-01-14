@@ -314,6 +314,10 @@
             background: #f00;
         }
 
+        #scroll-to-top.over-footer {
+            bottom: 6rem;
+        }
+
         #scroll-to-top .material-icons {
             color: #fff;
             font-size: 24px;
@@ -952,14 +956,28 @@
         // Scroll to Top Button Functionality
         const scrollToTopBtn = document.getElementById('scroll-to-top');
         const contentArea = document.getElementById('content');
+        const footer = document.querySelector('footer');
 
         // Function to check scroll position and show/hide button
         function handleScroll() {
             const scrollTop = contentArea.scrollTop || window.pageYOffset || document.documentElement.scrollTop;
+
+            // Show/hide button based on scroll position
             if (scrollTop > 100) {
                 scrollToTopBtn.classList.add('visible');
             } else {
                 scrollToTopBtn.classList.remove('visible');
+            }
+
+            // Check if button is over footer
+            const footerRect = footer.getBoundingClientRect();
+            const buttonRect = scrollToTopBtn.getBoundingClientRect();
+
+            // If footer is visible and button overlaps with footer
+            if (footerRect.top < window.innerHeight && buttonRect.bottom > footerRect.top) {
+                scrollToTopBtn.classList.add('over-footer');
+            } else {
+                scrollToTopBtn.classList.remove('over-footer');
             }
         }
 
