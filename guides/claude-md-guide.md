@@ -2,9 +2,19 @@
 
 CLAUDE.md is a markdown file that Claude automatically reads at the start of each session. It holds project-specific instructions you'd otherwise repeat in every prompt. Structure, conventions, workflows, style.
 
+### Important: CLAUDE.md files should not be static. Review and improve them regularly.
+
+## How to create a CLAUDE.md file
+
+- **From scratch:** Create a markdown file and start writing. 
+
+- **Get Claude to create it for you:** Run the `/init` command in your project directory. Claude will create a starter CLAUDE.md based on your project structure and tech stack. You can then review, edit, and refine it to your needs.
+
+- ⚠️ **The filename is case-sensitive** — it must be exactly `CLAUDE.md` (CLAUDE in uppercase, .md in lowercase).
+
 ## Setup
 
-I use a two-level structure for my CLAUDE.md files:
+I'm using a two-level structure for my CLAUDE.md files:
 
 1. **Top-level CLAUDE.md** – Located at the root of my workspace, this file contains general instructions for how Claude should write code across all projects.
 
@@ -12,7 +22,22 @@ I use a two-level structure for my CLAUDE.md files:
 
 Claude reads both files, with project-specific instructions taking precedence when relevant.
 
-## How to structure a project CLAUDE.md file
+## Top-level CLAUDE.md 
+
+These are the instructions I'm experimenting with:
+
+1. Think through problems, read the codebase first
+2. Check in before major changes
+3. Ask clarifying questions
+4. Give high-level explanations of changes
+5. Keep changes simple and minimal
+6. Maintain architecture documentation
+7. Never speculate about unread code
+8. Read relevant files before answering codebase questions
+9. Give grounded, hallucination-free answers
+10. Run tests after making changes to verify nothing broke
+
+## Project-specific CLAUDE.md 
 
 A well-structured CLAUDE.md gives Claude the context it needs to write code that fits your project. Here are the key sections to include:
 
@@ -25,3 +50,15 @@ A well-structured CLAUDE.md gives Claude the context it needs to write code that
 - **Architecture** – Map out your folder structure and explain what each directory contains. This helps Claude understand where to find and place code.
 
 - **Important Notes** – Highlight critical rules, security considerations, and gotchas. This is where you put things Claude should never forget—like files that shouldn't be committed or APIs that require special handling.
+
+## Best Practices
+
+- **Add Instructions** – Add instructions as you work, for example, if you notice Claude doing something wrong, don't just fix it, add or edit instructions to prevent the same mistake. 
+
+- **Ask Claude for Help** – You can ask Claude to review and suggest improvements to your CLAUDE.md files.
+
+## References
+
+Many developers share their CLAUDE.md setups and results online. I get good insights from the people I follow on Twitter/X.
+
+To create this page, I drew from [The Complete Guide to CLAUDE.md by Vishwas](https://x.com/codevolutionweb/status/2010715163859542086) (which covers more advanced setups), Alex Finn's [tutorial on Claude Code Desktop](https://www.youtube.com/watch?v=pZ2N7CJFbBk), and Claude itself—asking it for suggestions and clarifications.
