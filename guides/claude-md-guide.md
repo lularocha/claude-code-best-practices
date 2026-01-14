@@ -16,22 +16,12 @@ Claude reads both files, with project-specific instructions taking precedence wh
 
 A well-structured CLAUDE.md gives Claude the context it needs to write code that fits your project. Here are the key sections to include:
 
-### Project Title and Description
+- **Project Title and Description** – Start with the project name and a one-line description. This gives Claude immediate context about what the codebase does.
 
-Start with the project name and a one-line description. This gives Claude immediate context about what the codebase does.
+- **Code Style** – Define your coding conventions: language settings, export patterns, formatting preferences, CSS approach, etc. Be specific about what to use and what to avoid.
 
-### Code Style
+- **Commands** – List the essential commands for development, testing, linting, and deployment. Claude can then run the right commands without asking.
 
-Define your coding conventions: language settings, export patterns, formatting preferences, CSS approach, etc. Be specific about what to use and what to avoid.
+- **Architecture** – Map out your folder structure and explain what each directory contains. This helps Claude understand where to find and place code.
 
-### Commands
-
-List the essential commands for development, testing, linting, and deployment. Claude can then run the right commands without asking.
-
-### Architecture
-
-Map out your folder structure and explain what each directory contains. This helps Claude understand where to find and place code.
-
-### Important Notes
-
-Highlight critical rules, security considerations, and gotchas. This is where you put things Claude should never forget—like files that shouldn't be committed or APIs that require special handling.
+- **Important Notes** – Highlight critical rules, security considerations, and gotchas. This is where you put things Claude should never forget—like files that shouldn't be committed or APIs that require special handling.
