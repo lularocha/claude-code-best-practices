@@ -23,6 +23,12 @@ Curated lists of tools, people, and articles:
 - **[Tools & Plugins](resources/tools.md)** - Useful tools, extensions, and integrations
 - **[Articles & References](resources/articles.md)** - Important articles, blog posts, and documentation
 
+### 💡 Examples
+
+Real-world examples and project showcases:
+
+- **[Lularocha Projects](examples/lularocha-projects.md)** - Project examples and case studies
+
 ### 📋 Templates
 
 Reusable templates for common workflows:

@@ -167,6 +167,11 @@
             color: #f60;
         }
 
+        /* Examples page - tighter h2 spacing */
+        .content.examples-page h2 {
+            margin-bottom: 0;
+        }
+
         .content h4 {
             font-size: 1.1rem;
             margin-top: 1rem;
@@ -556,6 +561,7 @@
                 <button data-category="guides" class="active">Guides</button>
                 <button data-category="resources">Resources</button>
                 <button data-category="tools">Tools</button>
+                <button data-category="examples">Examples</button>
             </nav>
         </div>
         <h2>Lula Rocha + Claude</h2>
@@ -610,6 +616,9 @@
             ],
             tools: [
                 { name: 'Ralph Wiggun Loop', path: 'tools/ralph-wiggun-loop.md' }
+            ],
+            examples: [
+                { name: 'My Projects', path: 'examples/lularocha-projects.md' }
             ]
         };
 
@@ -798,6 +807,13 @@
                     content.classList.add('people-page');
                 } else {
                     content.classList.remove('people-page');
+                }
+
+                // Add special class for examples page
+                if (path.startsWith('examples/')) {
+                    content.classList.add('examples-page');
+                } else {
+                    content.classList.remove('examples-page');
                 }
             } catch (error) {
                 content.innerHTML = `
