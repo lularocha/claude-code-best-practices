@@ -953,21 +953,34 @@
         const scrollToTopBtn = document.getElementById('scroll-to-top');
         const contentArea = document.getElementById('content');
 
-        // Show/hide button based on scroll position
-        contentArea.addEventListener('scroll', () => {
-            if (contentArea.scrollTop > 100) {
+        // Function to check scroll position and show/hide button
+        function handleScroll() {
+            const scrollTop = contentArea.scrollTop || window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > 100) {
                 scrollToTopBtn.classList.add('visible');
             } else {
                 scrollToTopBtn.classList.remove('visible');
             }
-        });
+        }
+
+        // Listen to both content area and window scroll (handles desktop and mobile)
+        contentArea.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll);
 
         // Scroll to top when button is clicked
         scrollToTopBtn.addEventListener('click', () => {
-            contentArea.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            // Try content area first (desktop), then window (mobile)
+            if (contentArea.scrollTop > 0) {
+                contentArea.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
         });
     </script>
 </body>
