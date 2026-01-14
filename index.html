@@ -24,6 +24,14 @@
             background: #fe0;
             border-bottom: 1px solid #e1e4e8;
             padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
         }
 
         header h1 {
@@ -37,13 +45,11 @@
             font-weight: 400;
         }
 
-        /* Top Navigation */
+        /* Top Navigation - Desktop only (above 1024px) */
         .top-nav {
             display: flex;
-            gap: 2rem;
-            padding: 1rem 2rem;
-            background: #f0f0f0;
-            border-bottom: 2px solid white;
+            gap: 1.5rem;
+            align-items: center;
         }
 
         .top-nav button {
@@ -52,33 +58,30 @@
             font-size: 1rem;
             font-weight: 500;
             cursor: pointer;
-            padding: 0.5rem 1rem;
+            padding: 1rem 0 0.35rem 0;
             color: #000000;
-            border-radius: 4px;
             transition: background-color 0.2s;
         }
 
         .top-nav button:hover {
-            background: #e1e4e8;
-            text-decoration: underline;
+            color: #f60;
         }
 
         .top-nav button.active {
-            background: #ffffff;
-            color: #f60;
-            font-weight: 600;
+            color: #000;
+            border-bottom: 1px solid black;
         }
 
         /* Main Layout */
         .container {
             display: flex;
-            height: calc(100vh - 140px);
+            height: calc(100vh - 80px);
         }
 
         /* Sidebar */
         .sidebar {
             width: 280px;
-            background: #f0f0f0;
+            background: #f4f4f4;
             overflow-y: auto;
             padding: 1.5rem;
         }
@@ -87,7 +90,7 @@
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: #24292e;
+            color: #f60;
         }
 
         .sidebar ul {
@@ -102,20 +105,17 @@
             color: #000000;
             text-decoration: none;
             display: block;
-            padding: 0.5rem;
-            border-radius: 4px;
+            padding: 0.75rem 0 0.25rem 0;
             transition: background-color 0.2s;
         }
 
         .sidebar a:hover {
-            background: #e1e4e8;
-            text-decoration: underline;
+            color: #f60;
         }
 
         .sidebar a.active {
-            background: #ffffff;
-            color: #f60;
-            font-weight: 600;
+            color: #000;
+            border-bottom: 1px solid black;
         }
 
         /* Content Area */
@@ -414,13 +414,18 @@
                 display: block;
             }
 
-            /* Compact header */
+            /* Compact header - mobile layout */
             header {
                 padding: 0.75rem 1rem;
                 position: sticky;
                 top: 0;
                 z-index: 100;
                 background: #fe0;
+                display: block;
+            }
+
+            .header-content {
+                display: block;
             }
 
             header h1 {
@@ -467,7 +472,14 @@
 </head>
 <body>
     <header>
-        <h1>Claude Code Best Practices</h1>
+        <div class="header-content">
+            <h1>Claude Code Best Practices</h1>
+            <nav class="top-nav">
+                <button data-category="guides" class="active">Guides</button>
+                <button data-category="resources">Resources</button>
+                <button data-category="tools">Tools</button>
+            </nav>
+        </div>
         <h2>Lula Rocha + Claude</h2>
         <button id="hamburger-btn" aria-label="Open menu">
             <span></span>
@@ -485,12 +497,6 @@
             </nav>
         </div>
     </div>
-
-    <nav class="top-nav">
-        <button data-category="guides" class="active">Guides</button>
-        <button data-category="resources">Resources</button>
-        <button data-category="tools">Tools</button>
-    </nav>
 
     <div class="container">
         <aside class="sidebar">
