@@ -2,7 +2,7 @@
 
 CLAUDE.md is a markdown file that Claude automatically reads at the start of each session. It holds project-specific instructions you'd otherwise repeat in every prompt. Structure, conventions, workflows, style.
 
-### Important: CLAUDE.md files should not be static. Review and improve them regularly.
+### CLAUDE.md files should not be static. Review and improve them regularly.
 
 ## How to create a CLAUDE.md file
 
@@ -51,11 +51,49 @@ A well-structured CLAUDE.md gives Claude the context it needs to write code that
 
 - **Important Notes** – Highlight critical rules, security considerations, and gotchas. This is where you put things Claude should never forget—like files that shouldn't be committed or APIs that require special handling.
 
+### Example
+
+```markdown
+# Project: Your Project Title
+
+A one-line description of what this project does.
+
+## Code Style
+
+- Use ES6+ syntax (arrow functions, destructuring, template literals)
+- Prefer `const` over `let`, avoid `var`
+- Use meaningful variable and function names
+- Keep functions small and single-purpose
+
+## Commands
+
+- `npm run dev`: Start development server
+- `npm run build`: Build for production
+- `npm run test`: Run tests
+- `npm run lint`: Check for code issues
+
+## Architecture
+
+- `/src`: Main source code
+- `/src/components`: Reusable UI components
+- `/src/utils`: Helper functions and utilities
+- `/src/api`: API calls and data fetching
+- `/public`: Static assets (images, fonts)
+
+## Important Notes
+
+- NEVER commit `.env` files—they contain sensitive API keys
+- All external API calls go through `/src/api` to centralize error handling
+- Run `npm run lint` before committing
+```
+
 ## Best Practices
 
 - **Add Instructions** – Add instructions as you work, for example, if you notice Claude doing something wrong, don't just fix it, add or edit instructions to prevent the same mistake. 
 
 - **Ask Claude for Help** – You can ask Claude to review and suggest improvements to your CLAUDE.md files.
+
+- **Review and improve regularly** 
 
 ## References
 
