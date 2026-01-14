@@ -36,7 +36,8 @@ A curated list of prominent developers, educators, and thought leaders in the AI
 - **Notable Article**: [Ralph Wiggum: Claude Code's new way to run autonomously](https://medium.com/@joe.njenga/ralph-wiggum-claude-code-new-way-to-run-autonomously-for-hours-without-drama-095f47fbd467)
 - **Description**: Technical deep-dives on Claude Code features and techniques
 
----
+
+<!--
 
 ## Add Someone New
 
@@ -45,3 +46,4 @@ To add a new person:
 2. Use the format: Name, links, and description
 3. Include why they're notable in this space
 4. For Twitter profile fields: Always link to the profile page (e.g., https://x.com/username), never to specific posts
+-->

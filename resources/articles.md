@@ -7,8 +7,9 @@ Important articles, blog posts, documentation, and references about Claude Code 
 ## Official Documentation
 
 ### Anthropic Resources
-- **[Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)** - Official Anthropic blog post on building robust agent systems
 - **[Claude Code Documentation](https://code.claude.com/docs)** - Official Claude Code documentation
+- **[Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)** - Official Anthropic blog post on building robust agent systems
+
 
 ---
 
@@ -37,20 +38,14 @@ Important articles, blog posts, documentation, and references about Claude Code 
 
 ## Community Resources
 
-### Twitter/X Threads
+### Twitter/X
 - **[Matt Pocock on Ralph Loop](https://x.com/mattpocockuk/status/2010045508765782433?s=20)** - Insights on autonomous coding patterns
 
 ---
 
-## Research Papers
+## Courses
 
-> Add relevant AI/LLM research papers here
-
----
-
-## Books & Courses
-
-> Add books and courses on AI-assisted development here
+> Add courses on AI-assisted development here
 
 ---
 
