@@ -27,6 +27,10 @@ This example is Claude's refined version of Alex Finn instructions shown in his 
 ---
 Note: We can do better than that, [learn more about CLAUDE.md](claude-md-guide.md)
 
+## Connect to GitHub
+
+Connect your project folder as a repository in your GitHub account. This enables Claude Code to leverage powerful Git integrations—creating branches, committing changes, opening pull requests, and reviewing code—all through natural conversation. Version control also provides a safety net, allowing you to easily revert changes if something goes wrong and track the evolution of your project over time.
+
 ## Work in Plan Mode
 
 Always refine the plan as much as needed by asking Claude to ask you questions.
@@ -48,7 +52,7 @@ Slash commands can save significant time by automating repetitive tasks.
 
 - "Make me a slash command that commits and pushes all our code to github"
 
-## Verify the Work Done (Diligence)
+## Diligence - Verify the Work Done
 
 After completing a section or significant work, ask Claude to verify everything.
 
