@@ -1,4 +1,4 @@
-# Home
+# Working with Claude Code
 
 ## Fundamentals
 
