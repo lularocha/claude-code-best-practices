@@ -1,4 +1,4 @@
-# AI People & Educators
+# AI People
 
 A curated list of prominent developers, educators, and thought leaders in the AI and Claude Code space.
 
@@ -16,6 +16,8 @@ A curated list of prominent developers, educators, and thought leaders in the AI
 - **Twitter**: [@karpathy](https://x.com/karpathy)
 - **Description**: Previously Director of AI @ Tesla, founding team @ OpenAI, CS231n/PhD @ Stanford
 
+---
+
 ## Educators & Content Creators
 
 ### Matt Pocock
@@ -29,6 +31,8 @@ A curated list of prominent developers, educators, and thought leaders in the AI
 - **Notable Content**: [Working with Claude Code Desktop](https://www.youtube.com/watch?v=pZ2N7CJFbBk)
 - **Description**: Practical tutorials on Claude Code features, slash commands, and project setup
 
+---
+
 ## Writers & Technical Authors
 
 ### Joe Njenga
@@ -37,13 +41,3 @@ A curated list of prominent developers, educators, and thought leaders in the AI
 - **Description**: Technical deep-dives on Claude Code features and techniques
 
 
-<!--
-
-## Add Someone New
-
-To add a new person:
-1. Choose the appropriate category
-2. Use the format: Name, links, and description
-3. Include why they're notable in this space
-4. For Twitter profile fields: Always link to the profile page (e.g., https://x.com/username), never to specific posts
--->
