@@ -1020,7 +1020,7 @@
                     footerVisibility = Math.max(0, Math.min(1, visibleHeight / footerRect.height));
                 }
 
-                // Interpolate between 2rem (32px) and 6.5rem based on visibility
+                // Interpolate between 2rem (32px) and 9.5rem based on visibility
                 // Start moving at 20% visibility, reach full offset at 80% visibility
                 const startThreshold = 0.2;
                 const endThreshold = 0.8;
@@ -1031,7 +1031,7 @@
                 }
 
                 const minBottom = 2; // 2rem
-                const maxBottom = 6.5; // 6.5rem
+                const maxBottom = 9.5; // 9.5rem
                 const bottomPosition = minBottom + (progress * (maxBottom - minBottom));
 
                 scrollToTopBtn.style.bottom = `${bottomPosition}rem`;
