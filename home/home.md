@@ -17,7 +17,7 @@
 - **Create Slash Commands** - automate repetitive tasks
 - **Use Git Workflows** - branches, PRs, code review
 - **Use MCP Servers** - connect Claude to external tools and data
-- **Use Skills** - extend Claude with specialized task instructions
+- **[Use Skills](../tools/claude-skills.md)** - extend Claude with specialized task instructions
 - **Multi-Claude Workflows** - run parallel instances for complex work
 - **Use Headless Mode** - run Claude in CI/scripts with -p flag
 - **Customize with Hooks** - extend Claude's behavior with scripts

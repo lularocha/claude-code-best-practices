@@ -794,16 +794,35 @@
                             e.preventDefault();
                             // Resolve relative path based on current file's directory
                             const currentDir = currentFile.substring(0, currentFile.lastIndexOf('/') + 1);
-                            const targetPath = currentDir + href;
-                            loadFile(targetPath);
+                            let targetPath = currentDir + href;
 
-                            // Update sidebar active state if the target exists in sidebar
-                            document.querySelectorAll('.sidebar a').forEach(sidebarLink => {
-                                sidebarLink.classList.remove('active');
-                                if (sidebarLink.dataset.path === targetPath) {
-                                    sidebarLink.classList.add('active');
+                            // Normalize path (resolve ../)
+                            const parts = targetPath.split('/');
+                            const normalized = [];
+                            for (const part of parts) {
+                                if (part === '..') {
+                                    normalized.pop();
+                                } else if (part !== '.' && part !== '') {
+                                    normalized.push(part);
                                 }
-                            });
+                            }
+                            targetPath = normalized.join('/');
+
+                            // Find which category contains this file and update navigation
+                            for (const [category, files] of Object.entries(fileStructure)) {
+                                const file = files.find(f => f.path === targetPath);
+                                if (file) {
+                                    currentCategory = category;
+                                    updateTopNavActive(category);
+                                    renderSidebar(category);
+                                    loadFile(targetPath);
+                                    updateSidebarActive(targetPath);
+                                    return;
+                                }
+                            }
+
+                            // If not found in fileStructure, just load the file
+                            loadFile(targetPath);
                         });
                     }
                 });
