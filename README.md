@@ -21,7 +21,7 @@ Curated lists of tools, people, and articles:
 
 - **[AI People](resources/people.md)** - Prominent developers, educators, and thought leaders in AI/Claude Code space
 - **[Tools & Plugins](resources/tools.md)** - Useful tools, extensions, and integrations
-- **[Articles & References](resources/articles.md)** - Important articles, blog posts, and documentation
+- **[References](resources/references.md)** - Important articles, blog posts, and documentation
 
 ### 💡 Examples
 

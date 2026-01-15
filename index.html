@@ -201,7 +201,7 @@
         }
 
         .content code {
-            background: #f6f8fa;
+            background: #ddecfb;
             padding: 0.2rem 0.4rem;
             border-radius: 3px;
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
@@ -558,6 +558,7 @@
         <div class="header-content">
             <h1><span class="h1cc">Claude Code</span> <span class="h1bp">Best Practices</span></h1>
             <nav class="top-nav">
+                <button data-category="home">Home</button>
                 <button data-category="guides" class="active">Guides</button>
                 <button data-category="resources">Resources</button>
                 <button data-category="tools">Tools</button>
@@ -606,16 +607,20 @@
     <script>
         // File structure mapping
         const fileStructure = {
+            home: [
+                { name: 'Home', path: 'home/home.md' }
+            ],
             guides: [
                 { name: 'Best Practices Overview', path: 'guides/cc-best-practices-overview.md' },
                 { name: 'CLAUDE.md', path: 'guides/claude-md-guide.md' }
             ],
             resources: [
                 { name: 'AI People', path: 'resources/people.md' },
-                { name: 'Articles & References', path: 'resources/articles.md' }
+                { name: 'References', path: 'resources/references.md' }
             ],
             tools: [
-                { name: 'Ralph Wiggun Loop', path: 'tools/ralph-wiggun-loop.md' }
+                { name: 'Ralph Wiggun Loop', path: 'tools/ralph-wiggun-loop.md' },
+                { name: 'Claude Skills', path: 'tools/claude-skills.md' }
             ],
             examples: [
                 { name: 'My Projects', path: 'examples/lularocha-projects.md' }

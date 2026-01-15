@@ -6,26 +6,13 @@
 
 Think of Claude Code as a conversation with an AGI person, not just a tool. Before accepting any answer, ask for clarification or have the model ask you questions to ensure both you and Claude have a clear understanding of the task and the plan to accomplish it. Just like discussing a project with a work collegue.
 
-## CLAUDE.md (Claude Instructions)
+## Use CLAUDE.md
 
 **Location:** Root of your project folder or parent directory for all projects.
 
-### Example:
-This example is Claude's refined version of Alex Finn instructions shown in his [Claude Code Desktop Tutorial](https://www.youtube.com/watch?v=pZ2N7CJFbBk).
+CLAUDE.md is a markdown file that Claude automatically reads at the start of each session. It holds instructions you'd otherwise repeat in every prompt.
 
-1. Think through problems, read the codebase first
-2. Check in before major changes
-3. Ask clarifying questions
-4. Give high-level explanations of changes
-5. Keep changes simple and minimal
-6. Maintain architecture documentation
-7. Never speculate about unread code
-8. Read relevant files before answering codebase questions
-9. Give grounded, hallucination-free answers
-10. Run tests after making changes to verify nothing broke
-
----
-Note: We can do better than that, [learn more about CLAUDE.md](claude-md-guide.md)
+For a complete guide on creating and structuring CLAUDE.md files, see the [CLAUDE.md Guide](claude-md-guide.md).
 
 ## Connect to GitHub
 
