@@ -27,10 +27,11 @@
 
 ## Anthropic Resources
 
-- **[Claude Code Documentation](https://code.claude.com/docs)** - Official Claude Code documentation
+- **[Claude Code: Best practices for agentic coding](https://www.anthropic.com/engineering/claude-code-best-practices)** - proven effective for various codebases, languages, and environments.
+
 - **[Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)** - Anthropic post on building robust agent systems
 
 
-
+- **[Claude Code Documentation](https://code.claude.com/docs)** - Official Claude Code documentation
 
 
