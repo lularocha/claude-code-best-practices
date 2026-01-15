@@ -6,7 +6,7 @@ CLAUDE.md is a markdown file that Claude automatically reads at the start of eac
 
 ## How to create a CLAUDE.md file
 
-- **From scratch:** Create a markdown file and start writing. 
+- **From scratch:** Create a markdown file and start writing. Talk to Claude, ask for suggestions or describe what you want and let Claude structure and write the instructions for you in a simple, clear, and optimized way. 
 
 - **Get Claude to create it for you:** Run the `/init` command in your project directory. Claude will create a starter CLAUDE.md based on your project structure and tech stack. You can then review, edit, and refine it to your needs.
 
