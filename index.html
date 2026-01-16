@@ -24,109 +24,171 @@
             color: #333;
         }
 
-        /* Header */
+        /* Header - Hidden on desktop, shown on mobile */
         header {
-            background: #fe0;
-            border-bottom: 1px solid #e1e4e8;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            display: none;
         }
 
-        .header-content {
-            display: flex;
-            flex-direction: column;
-        }
+        @media (max-width: 1024px) {
+            header {
+                display: block;
+                background: #fe0;
+                border-bottom: 1px solid #e1e4e8;
+                padding: 0.75rem 1rem;
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            }
 
-        header h1 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #000;
-            text-transform: uppercase;
-        }
+            .header-content {
+                display: block;
+            }
 
-        header h2 {
-            font-size: 1rem;
-            font-weight: 500;
-            padding-top: 0.25rem;
-        }
-        
-        /* Top Navigation - Desktop only (above 1024px) */
-        .top-nav {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
+            header h1 {
+                font-size: 1.75rem;
+                font-weight: 700;
+                color: #000;
+                text-transform: uppercase;
+                line-height: 1.15;
+            }
 
-        .top-nav button {
-            background: none;
-            border: none;
-            font-size: 1.05rem;
-            font-weight: 500;
-            cursor: pointer;
-            padding: 0.25rem 0 0.35rem 0;
-            color: #000000;
-            font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            transition: background-color 0.2s;
-        }
+            span.h1cc {
+                font-size: 2.1rem;
+            }
 
-        .top-nav button:hover {
-            color: #f60;
-        }
+            span.h1bp {
+                white-space: nowrap;
+            }
 
-        .top-nav button.active {
-            color: #000;
-            border-bottom: 1px solid black;
+            header h2 {
+                font-size: 1rem;
+                font-weight: 500;
+                padding-top: 0.25rem;
+            }
         }
 
         /* Main Layout */
         .container {
             display: flex;
-            /*height: calc(100vh - 80px);*/
+            height: 100vh;
         }
 
         /* Sidebar */
         .sidebar {
-            width: 280px;
-            background: #f4f4f4;
+            width: 300px;
+            background: #f8f8f8;
             overflow-y: auto;
-            padding: 1.5rem;
+            padding: 1rem;
             font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
         }
 
-        .sidebar h2 {
-            display: none;
-            font-size: 1rem;
-            font-weight: 600;
+        /* Sidebar Header/Branding */
+        .sidebar-header {
+            padding: 1rem 0.75rem 0.5rem 0;
+            margin-left: 0.75rem;
             margin-bottom: 1rem;
-            color: #f60;
         }
 
-        .sidebar ul {
-            list-style: none;
+        .sidebar-header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.25;
+            color: #000;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
         }
 
-        .sidebar li {
+        .sidebar-header .h1cc {
+            font-size: 1.8rem;
+        }
+
+        .sidebar-header h2 {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #666;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar-nav {
+            flex: 1;
+        }
+
+        .nav-section {
             margin-bottom: 0.5rem;
         }
 
-        .sidebar a {
-            color: #000000;
+        .nav-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0.75rem 0.5rem 0;
+            margin-left: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #000;
+            cursor: pointer;
+            user-select: none;
+            border-top: 1px solid #ddd;
+        }
+
+        .nav-section-header:hover {
+            background: transparent;
+        }
+
+        .nav-section-header.expanded {
+            background: transparent;
+        }
+
+        .nav-section:first-child .nav-section-header {
+            border-top: none;
+        }
+
+        .nav-section-header::after {
+            content: '▶';
+            font-size: 0.7rem;
+            transition: transform 0.2s ease;
+            /* Hidden - sections always expanded. To re-enable collapse, remove display:none */
+            display: none;
+        }
+
+        .nav-section-header.expanded::after {
+            transform: rotate(90deg);
+        }
+
+        .nav-section-items {
+            /* Always expanded - to re-enable collapse, restore max-height:0 and overflow:hidden */
+            max-height: none;
+            overflow: visible;
+            transition: max-height 0.3s ease;
+            padding-left: 0.5rem;
+        }
+
+        .nav-section-items.expanded {
+            max-height: 500px;
+        }
+
+        .nav-section-item {
+            color: #667;
             text-decoration: none;
             display: block;
-            padding: 0.75rem 0 0.25rem 0;
-            transition: background-color 0.2s;
+            padding: 0.5rem 0.5rem 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            cursor: pointer;
         }
 
-        .sidebar a:hover {
-            color: #f60;
-        }
-
-        .sidebar a.active {
+        .nav-section-item:hover {
+            background: #fff;
             color: #000;
-            border-bottom: 1px solid #aaa;
+        }
+
+        .nav-section-item.active {
+            color: #000;
+            font-weight: 600;
         }
 
         /* Content Area */
@@ -249,9 +311,9 @@
 
         /* Footer */
         footer {
-            background: #f4f4f4;
+            background: #f8f8f8;
             padding: 2rem;
-            border-top: 1px solid #e1e4e8;
+            border-top: 3px solid #fff;
             font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
         }
 
@@ -266,31 +328,62 @@
             line-height: 1.5;
         }
 
-        /* Hamburger Button - Hidden by default, shown on mobile */
+        /* Hamburger Button - Hidden on desktop, shown on mobile */
         #hamburger-btn {
             display: none;
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            z-index: 1000;
-            width: 44px;
-            height: 44px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-            padding: 0;
         }
 
-        #hamburger-btn span {
-            display: block;
-            width: 24px;
-            height: 3px;
-            background: #333;
-            transition: all 0.3s ease;
+        @media (max-width: 1024px) {
+            #hamburger-btn {
+                display: flex;
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+                z-index: 1000;
+                width: 44px;
+                height: 44px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                padding: 0;
+            }
+
+            #hamburger-btn span {
+                display: block;
+                width: 24px;
+                height: 3px;
+                background: #333;
+                transition: all 0.3s ease;
+                transform-origin: center;
+            }
+
+            /* X icon when menu is open */
+            #hamburger-btn.open {
+                gap: 0;
+            }
+
+            #hamburger-btn.open span {
+                position: absolute;
+                background: transparent !important;
+            }
+
+            #hamburger-btn.open span:nth-child(1) {
+                transform: rotate(45deg);
+                background: #333;
+            }
+
+            #hamburger-btn.open span:nth-child(2) {
+                opacity: 0;
+            }
+
+            #hamburger-btn.open span:nth-child(3) {
+                transform: rotate(-45deg);
+                background: #333;
+            }
         }
 
         /* Scroll to Top Button */
@@ -391,6 +484,10 @@
             margin-bottom: 0.5rem;
         }
 
+        .mobile-section.active {
+            background: #fff;
+        }
+
         .mobile-section-header {
             display: flex;
             align-items: center;
@@ -468,18 +565,9 @@
 
         /* Responsive Media Query - Below 1024px (Tablet and Mobile) */
         @media (max-width: 1024px) {
-            /* Hide desktop navigation */
-            .top-nav {
-                display: none;
-            }
-
+            /* Hide desktop sidebar */
             .sidebar {
                 display: none;
-            }
-
-            /* Show hamburger button */
-            #hamburger-btn {
-                display: flex;
             }
 
             /* Show mobile navigation overlay when needed */
@@ -487,45 +575,23 @@
                 display: block;
             }
 
-            /* Compact header - mobile layout */
-            header {
-                padding: 0.75rem 1rem;
-                position: sticky;
-                top: 0;
-                z-index: 100;
-                background: #fe0;
-                display: block;
-            }
-
-            .header-content {
-                display: block;
-            }
-
-            header h1 {
-                font-size: 1.75rem;
-                line-height: 1.15;
-            }
-            header h2 {
-                padding-top: 0;
-            }
-
             /* Full-width content */
             .container {
                 flex-direction: column;
-                height: auto;
+                height: 100vh;
             }
 
             .content {
                 width: 100%;
-                padding: 1rem; /* Reduced padding for mobile */
-                overflow-y: visible;
+                padding: 1rem;
+                overflow-y: auto;
             }
 
             /* Responsive font sizes */
             .content h1 {
                 font-size: 1.75rem;
+                padding-top: 1rem;
             }
-
             .content h2 {
                 font-size: 1.25rem;
             }
@@ -554,24 +620,20 @@
     </style>
 </head>
 <body>
+    <!-- Mobile Header -->
     <header>
         <div class="header-content">
             <h1><span class="h1cc">Claude Code</span> <span class="h1bp">Best Practices</span></h1>
-            <nav class="top-nav">
-                <button data-category="home">Home</button>
-                <button data-category="guides" class="active">Guides</button>
-                <button data-category="resources">Resources</button>
-                <button data-category="tools">Tools</button>
-                <button data-category="examples">Examples</button>
-            </nav>
         </div>
         <h2>Lula Rocha + Claude</h2>
-        <button id="hamburger-btn" aria-label="Open menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
     </header>
+
+    <!-- Hamburger Button for Mobile -->
+    <button id="hamburger-btn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
     <!-- Mobile Navigation Overlay -->
     <div id="mobile-nav-overlay">
@@ -590,8 +652,13 @@
 
     <div class="container">
         <aside class="sidebar">
-            <h2 id="sidebar-title">Guides</h2>
-            <ul id="file-list"></ul>
+            <div class="sidebar-header">
+                <h1><span class="h1cc">Claude Code</span><br><span class="h1bp">Best Practices</span></h1>
+                <h2>Lula Rocha + Claude</h2>
+            </div>
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <!-- Will be populated dynamically by JavaScript -->
+            </nav>
         </aside>
 
         <main class="content" id="content">
@@ -633,12 +700,11 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            setupNavigation();
+            renderSidebarNavigation();
             setupMobileNavigation();
 
             // Load from URL hash or default to first file
             if (!loadFromHash()) {
-                renderSidebar('guides');
                 loadFile(fileStructure.guides[0].path);
             }
 
@@ -647,6 +713,61 @@
                 loadFromHash();
             });
         });
+
+        // Render sidebar navigation with all categories
+        function renderSidebarNavigation() {
+            const sidebarNav = document.getElementById('sidebar-nav');
+            sidebarNav.innerHTML = '';
+
+            // Loop through each category
+            Object.keys(fileStructure).forEach((category, index) => {
+                const section = document.createElement('div');
+                section.className = 'nav-section';
+
+                // Create section header
+                const header = document.createElement('div');
+                header.className = 'nav-section-header';
+                header.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+
+                // Always expanded - all sections start expanded
+                header.classList.add('expanded');
+
+                // Create items container
+                const itemsContainer = document.createElement('div');
+                itemsContainer.className = 'nav-section-items';
+
+                // Always expanded - all sections start expanded
+                itemsContainer.classList.add('expanded');
+
+                // Populate items
+                fileStructure[category].forEach(file => {
+                    const item = document.createElement('a');
+                    item.className = 'nav-section-item';
+                    item.textContent = file.name;
+                    item.dataset.path = file.path;
+                    item.href = '#' + file.path;
+
+                    item.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        loadFile(file.path);
+                        updateSidebarActive(file.path);
+                    });
+
+                    itemsContainer.appendChild(item);
+                });
+
+                // Toggle expand/collapse - DISABLED (sections always expanded)
+                // To re-enable: uncomment this event listener
+                /* header.addEventListener('click', () => {
+                    header.classList.toggle('expanded');
+                    itemsContainer.classList.toggle('expanded');
+                }); */
+
+                section.appendChild(header);
+                section.appendChild(itemsContainer);
+                sidebarNav.appendChild(section);
+            });
+        }
 
         // Parse URL hash and load the corresponding file
         function loadFromHash() {
@@ -658,8 +779,6 @@
                 const file = files.find(f => f.path === hash);
                 if (file) {
                     currentCategory = category;
-                    renderSidebar(category);
-                    updateTopNavActive(category);
                     loadFile(file.path, false); // false = don't update hash again
                     updateSidebarActive(file.path);
                     updateMobileMenuActive(category, file.path);
@@ -669,17 +788,10 @@
             return false;
         }
 
-        // Update top navigation active state
-        function updateTopNavActive(category) {
-            document.querySelectorAll('.top-nav button').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.category === category);
-            });
-        }
-
         // Update sidebar active state
         function updateSidebarActive(path) {
-            document.querySelectorAll('.sidebar a').forEach(link => {
-                link.classList.toggle('active', link.dataset.path === path);
+            document.querySelectorAll('.nav-section-item').forEach(item => {
+                item.classList.toggle('active', item.dataset.path === path);
             });
         }
 
@@ -691,71 +803,22 @@
             document.querySelectorAll('.mobile-section-header').forEach(header => {
                 const sectionCategory = header.textContent.toLowerCase();
                 header.classList.toggle('active', sectionCategory === category);
+                // Expand active section
+                if (sectionCategory === category) {
+                    header.classList.add('expanded');
+                }
             });
-        }
-
-        // Setup top navigation
-        function setupNavigation() {
-            const navButtons = document.querySelectorAll('.top-nav button');
-            navButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const category = button.dataset.category;
-
-                    // Update active state
-                    navButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-
-                    // Update sidebar
-                    currentCategory = category;
-                    renderSidebar(category);
-
-                    // Load first file in category
-                    if (fileStructure[category].length > 0) {
-                        loadFile(fileStructure[category][0].path);
-                    }
-                });
+            // Update active section (parent div) and expand submenu
+            document.querySelectorAll('.mobile-section').forEach(section => {
+                const sectionHeader = section.querySelector('.mobile-section-header');
+                const submenu = section.querySelector('.mobile-submenu');
+                const sectionCategory = sectionHeader ? sectionHeader.textContent.toLowerCase() : '';
+                section.classList.toggle('active', sectionCategory === category);
+                // Expand active section's submenu
+                if (sectionCategory === category && submenu) {
+                    submenu.classList.add('expanded');
+                }
             });
-        }
-
-        // Render sidebar based on category
-        function renderSidebar(category) {
-            const sidebarTitle = document.getElementById('sidebar-title');
-            const fileList = document.getElementById('file-list');
-
-            // Update title
-            sidebarTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-
-            // Clear and populate file list
-            fileList.innerHTML = '';
-            fileStructure[category].forEach(file => {
-                const li = document.createElement('li');
-                const a = document.createElement('a');
-                a.href = '#';
-                a.textContent = file.name;
-                a.dataset.path = file.path;
-
-                a.addEventListener('click', (e) => {
-                    e.preventDefault();
-
-                    // Update active state
-                    document.querySelectorAll('.sidebar a').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    a.classList.add('active');
-
-                    // Load file
-                    loadFile(file.path);
-                });
-
-                li.appendChild(a);
-                fileList.appendChild(li);
-            });
-
-            // Set first item as active
-            const firstLink = fileList.querySelector('a');
-            if (firstLink) {
-                firstLink.classList.add('active');
-            }
         }
 
         // Load and render markdown file
@@ -813,8 +876,6 @@
                                 const file = files.find(f => f.path === targetPath);
                                 if (file) {
                                     currentCategory = category;
-                                    updateTopNavActive(category);
-                                    renderSidebar(category);
                                     loadFile(targetPath);
                                     updateSidebarActive(targetPath);
                                     return;
@@ -892,16 +953,24 @@
         // Mobile Navigation Functions
         function openMobileMenu() {
             const overlay = document.getElementById('mobile-nav-overlay');
+            const hamburgerBtn = document.getElementById('hamburger-btn');
             overlay.style.display = 'block';
             // Trigger reflow to enable CSS transition
             overlay.offsetHeight;
             overlay.classList.add('open');
+            hamburgerBtn.classList.add('open');
             document.body.classList.add('menu-open');
+            // Expand active section to show current location
+            if (currentFile && currentCategory) {
+                updateMobileMenuActive(currentCategory, currentFile);
+            }
         }
 
         function closeMobileMenu() {
             const overlay = document.getElementById('mobile-nav-overlay');
+            const hamburgerBtn = document.getElementById('hamburger-btn');
             overlay.classList.remove('open');
+            hamburgerBtn.classList.remove('open');
             document.body.classList.remove('menu-open');
             // Wait for transition to complete before hiding
             setTimeout(() => {
@@ -926,22 +995,47 @@
             const category = item.dataset.category;
             const path = item.dataset.path;
 
+            // Update current category
+            currentCategory = category;
+
             // Load the file
             loadFile(path);
 
-            // Update active states in mobile menu
+            // Update active states in mobile menu - items
             document.querySelectorAll('.mobile-submenu-item').forEach(menuItem => {
                 menuItem.classList.remove('active');
             });
             item.classList.add('active');
 
-            // Update active section header
+            // Update active section header and collapse all sections
             document.querySelectorAll('.mobile-section-header').forEach(header => {
                 header.classList.remove('active');
+                header.classList.remove('expanded');
             });
-            const sectionHeader = item.closest('.mobile-section').querySelector('.mobile-section-header');
-            if (sectionHeader) {
-                sectionHeader.classList.add('active');
+            document.querySelectorAll('.mobile-submenu').forEach(submenu => {
+                submenu.classList.remove('expanded');
+            });
+
+            // Expand and activate the new section
+            const activeSection = item.closest('.mobile-section');
+            if (activeSection) {
+                // Remove active from all sections
+                document.querySelectorAll('.mobile-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                // Add active to current section
+                activeSection.classList.add('active');
+
+                // Expand header and submenu
+                const sectionHeader = activeSection.querySelector('.mobile-section-header');
+                const submenu = activeSection.querySelector('.mobile-submenu');
+                if (sectionHeader) {
+                    sectionHeader.classList.add('active');
+                    sectionHeader.classList.add('expanded');
+                }
+                if (submenu) {
+                    submenu.classList.add('expanded');
+                }
             }
 
             // Close the mobile menu
@@ -953,10 +1047,16 @@
             // Populate mobile menu
             populateMobileMenu();
 
-            // Hamburger button click → open menu
+            // Hamburger button click → toggle menu
             const hamburgerBtn = document.getElementById('hamburger-btn');
             if (hamburgerBtn) {
-                hamburgerBtn.addEventListener('click', openMobileMenu);
+                hamburgerBtn.addEventListener('click', () => {
+                    if (hamburgerBtn.classList.contains('open')) {
+                        closeMobileMenu();
+                    } else {
+                        openMobileMenu();
+                    }
+                });
             }
 
             // Close button click → close menu
@@ -1006,39 +1106,33 @@
                 scrollToTopBtn.classList.remove('visible');
             }
 
-            // Smoothly adjust button position when footer is visible (mobile only)
+            // Smoothly adjust button position when footer is visible
             const isMobile = window.innerWidth <= 1024;
+            const footerRect = footer.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
 
-            if (isMobile) {
-                const footerRect = footer.getBoundingClientRect();
-                const viewportHeight = window.innerHeight;
-
-                // Calculate how much of the footer is visible (0 to 1)
-                let footerVisibility = 0;
-                if (footerRect.top < viewportHeight) {
-                    const visibleHeight = Math.min(viewportHeight - footerRect.top, footerRect.height);
-                    footerVisibility = Math.max(0, Math.min(1, visibleHeight / footerRect.height));
-                }
-
-                // Interpolate between 2rem (32px) and 9.5rem based on visibility
-                // Start moving at 20% visibility, reach full offset at 80% visibility
-                const startThreshold = 0.2;
-                const endThreshold = 0.8;
-                let progress = 0;
-
-                if (footerVisibility > startThreshold) {
-                    progress = Math.min(1, (footerVisibility - startThreshold) / (endThreshold - startThreshold));
-                }
-
-                const minBottom = 2; // 2rem
-                const maxBottom = 9.5; // 9.5rem
-                const bottomPosition = minBottom + (progress * (maxBottom - minBottom));
-
-                scrollToTopBtn.style.bottom = `${bottomPosition}rem`;
-            } else {
-                // Desktop: keep button at 2rem
-                scrollToTopBtn.style.bottom = '2rem';
+            // Calculate how much of the footer is visible (0 to 1)
+            let footerVisibility = 0;
+            if (footerRect.top < viewportHeight) {
+                const visibleHeight = Math.min(viewportHeight - footerRect.top, footerRect.height);
+                footerVisibility = Math.max(0, Math.min(1, visibleHeight / footerRect.height));
             }
+
+            // Interpolate between 2rem and max based on visibility
+            // Start moving at 20% visibility, reach full offset at 80% visibility
+            const startThreshold = 0.2;
+            const endThreshold = 0.8;
+            let progress = 0;
+
+            if (footerVisibility > startThreshold) {
+                progress = Math.min(1, (footerVisibility - startThreshold) / (endThreshold - startThreshold));
+            }
+
+            const minBottom = 2; // 2rem
+            const maxBottom = isMobile ? 9.5 : 7; // 9.5rem for mobile, 7rem for desktop
+            const bottomPosition = minBottom + (progress * (maxBottom - minBottom));
+
+            scrollToTopBtn.style.bottom = `${bottomPosition}rem`;
         }
 
         // Listen to both content area and window scroll (handles desktop and mobile)
@@ -1047,18 +1141,15 @@
 
         // Scroll to top when button is clicked
         scrollToTopBtn.addEventListener('click', () => {
-            // Try content area first (desktop), then window (mobile)
-            if (contentArea.scrollTop > 0) {
-                contentArea.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            } else {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }
+            // Scroll both content area and window to ensure it works in all layouts
+            contentArea.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
