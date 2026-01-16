@@ -22,6 +22,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
+            border-top: 0.75rem solid #fe0;
         }
 
         /* Header - Hidden on desktop, shown on mobile */
@@ -34,7 +35,7 @@
                 display: block;
                 background: #fe0;
                 border-bottom: 1px solid #e1e4e8;
-                padding: 0.75rem 1rem;
+                padding: 1rem;
                 position: sticky;
                 top: 0;
                 z-index: 100;
@@ -189,6 +190,17 @@
         .nav-section-item.active {
             color: #000;
             font-weight: 600;
+            position: relative;
+        }
+
+        .nav-section-item.active::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #f90;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-top: -4px;
         }
 
         /* Content Area */
@@ -199,6 +211,14 @@
             background: #fff;
             font-family: "Inter", sans-serif;
             font-optical-sizing: auto;
+            max-width: 900px;
+            /* Hide scrollbar but keep scroll functionality - desktop only */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+        }
+
+        .content::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
         }
 
         /* Markdown Styling */
@@ -311,9 +331,10 @@
 
         /* Footer */
         footer {
-            background: #f8f8f8;
-            padding: 2rem;
-            border-top: 3px solid #fff;
+            /*background: #f8f8f8;*/
+            padding: 1.75rem;
+            border-top: 3px solid #eee;
+            border-bottom: 0.5rem solid #fe0;
             font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
         }
 
@@ -337,7 +358,7 @@
             #hamburger-btn {
                 display: flex;
                 position: fixed;
-                top: 1rem;
+                top: 0.5rem;
                 right: 1rem;
                 z-index: 1000;
                 width: 44px;
@@ -575,6 +596,10 @@
                 display: block;
             }
 
+            body {
+                border-top: none;
+            }
+
             /* Full-width content */
             .container {
                 flex-direction: column;
@@ -583,8 +608,16 @@
 
             .content {
                 width: 100%;
+                max-width: none;
                 padding: 1rem;
                 overflow-y: auto;
+                /* Show scrollbar on mobile */
+                scrollbar-width: auto;
+                -ms-overflow-style: auto;
+            }
+
+            .content::-webkit-scrollbar {
+                display: block;
             }
 
             /* Responsive font sizes */
@@ -614,7 +647,7 @@
 
             /* Center footer text on mobile */
             footer {
-                text-align: center;
+                text-align: left;
             }
         }
     </style>
@@ -1129,15 +1162,27 @@
             }
 
             const minBottom = 2; // 2rem
-            const maxBottom = isMobile ? 9.5 : 7; // 9.5rem for mobile, 7rem for desktop
+            const maxBottom = isMobile ? 9.5 : 5.5; // 9.5rem for mobile, 5.5rem for desktop
             const bottomPosition = minBottom + (progress * (maxBottom - minBottom));
 
             scrollToTopBtn.style.bottom = `${bottomPosition}rem`;
+
+            // Position button relative to content area's right edge on desktop
+            if (!isMobile) {
+                const contentRect = contentArea.getBoundingClientRect();
+                const buttonRightPosition = window.innerWidth - contentRect.right + 32; // 32px = 2rem
+                scrollToTopBtn.style.right = `${buttonRightPosition}px`;
+            } else {
+                scrollToTopBtn.style.right = '2rem';
+            }
         }
 
         // Listen to both content area and window scroll (handles desktop and mobile)
         contentArea.addEventListener('scroll', handleScroll);
         window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleScroll);
+        // Initial call to position button correctly
+        handleScroll();
 
         // Scroll to top when button is clicked
         scrollToTopBtn.addEventListener('click', () => {

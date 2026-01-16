@@ -10,7 +10,7 @@ Think of Claude Code as a conversation with an intelligent colleague, not just a
 
 CLAUDE.md is a markdown file that Claude automatically reads at the start of each session. Place it in the root of your project folder or a parent directory for shared instructions across projects. It holds context and instructions you'd otherwise repeat in every prompt.
 
-For a complete guide on creating and structuring CLAUDE.md files, see the [CLAUDE.md Guide](claude-md-guide.md).
+For more information on creating and structuring CLAUDE.md files, see the [CLAUDE.md Guide](claude-md-guide.md).
 
 ### Be Specific
 
