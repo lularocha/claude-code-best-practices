@@ -2,6 +2,8 @@
 
 This site documents my Claude Code journey, and of course I'm building it with Claude Code. It's a feedback learning loop: study, practice, learn, document, improve.
 
+_Last updated: January 17, 2026._
+
 ## Fundamentals
 
 - **Talk to Claude Like a Colleague** - foundational mindset
