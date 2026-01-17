@@ -457,28 +457,9 @@
                 transform-origin: center;
             }
 
-            /* X icon when menu is open */
+            /* Hide hamburger when menu is open (close button is inside panel) */
             #hamburger-btn.open {
-                gap: 0;
-            }
-
-            #hamburger-btn.open span {
-                position: absolute;
-                background: transparent !important;
-            }
-
-            #hamburger-btn.open span:nth-child(1) {
-                transform: rotate(45deg);
-                background: #333;
-            }
-
-            #hamburger-btn.open span:nth-child(2) {
-                opacity: 0;
-            }
-
-            #hamburger-btn.open span:nth-child(3) {
-                transform: rotate(-45deg);
-                background: #333;
+                display: none;
             }
 
             /* Hide desktop sidebar on mobile */
@@ -526,7 +507,7 @@
 
             #mobile-close-btn {
                 position: absolute;
-                top: 1rem;
+                top: 0.5rem;
                 right: 1rem;
                 width: 44px;
                 height: 44px;
@@ -558,6 +539,11 @@
                 background: #fff;
             }
 
+            .mobile-section:has(.mobile-section-header.expanded):not(.active),
+            .mobile-section:has(.mobile-section-header.expanded):not(.active) .mobile-section-header {
+                background: #e3e3e3;
+            }
+
             .mobile-section-header {
                 display: flex;
                 align-items: center;
@@ -573,10 +559,6 @@
                 width: 100%;
                 text-align: left;
                 transition: background-color 0.2s;
-            }
-
-            .mobile-section-header:hover {
-                background: #fff;
             }
 
             .mobile-section-header.active {
@@ -616,9 +598,9 @@
                 margin-top: 0.25rem;
             }
 
-            .mobile-submenu-item:hover {
+/*            .mobile-submenu-item:hover {
                 background: #fff;
-            }
+            }*/
 
             .mobile-submenu-item.active {
                 background: #ffffff;
