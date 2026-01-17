@@ -1,10 +1,15 @@
 # Working with Claude Code
 
-This site documents my Claude Code journey, and of course I'm building it with Claude Code. It's a feedback learning loop: study, practice, learn, document, improve.
+This site documents my Claude Code journey, and of course I'm building it with Claude Code itself.<br> 
+It's a feedback learning loop: study, practice, learn, document, improve.
 
 _Last updated: January 17, 2026._
 
-## Fundamentals
+---
+
+## Best Practices Summary
+
+### Fundamentals
 
 - **Talk to Claude Like a Colleague** - foundational mindset
 - **Be Specific** - clear, detailed instructions get better results
@@ -16,7 +21,7 @@ _Last updated: January 17, 2026._
 - **Start Small & Iterate** - build incrementally
 - **[Use CLAUDE.md](../guides/claude-md-guide.md)** - define instructions and project context
 
-## Advanced
+### Advanced
 
 - **Create Slash Commands** - automate repetitive tasks
 - **Use Git Workflows** - branches, PRs, code review
