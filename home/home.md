@@ -1,6 +1,6 @@
 # Working with Claude Code
 
-**This site documents my Claude Code journey, and it's build it with Claude Code itself.<br>
+**This site documents my Claude Code journey, and it's built with Claude Code itself.<br>
 It's my feedback learning loop: study, practice, learn, document, improve.**
 
 <span class="last-updated">_Last updated: January 17, 2026._</span>
