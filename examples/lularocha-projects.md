@@ -1,9 +1,11 @@
 # My Projects
 
-A showcase of projects built with Claude Code, some completed, others still in development.
+A showcase of projects built with Claude Code.
 
 ## [Prompt Builder](https://sugiro-prompt.vercel.app/)
 
-Create high-quality AI prompts with the strategy: Persona + Context + Constraints & Tech + Examples.
+A tool for creating high-quality AI prompts using the strategy: Persona + Context + Constraints/Requirements + Examples.
 
-Note: Claude Console has an AI powered [Prompt Tool](https://platform.claude.com/dashboard) to help you create prompts in your workspaces (you need to have an account and buy Claude API credits).
+**Status**: Currently in testing. Some features requiring API integration are not yet implemented.
+
+_Note: Claude also offers a built-in [Prompt Generator](https://platform.claude.com/dashboard) in the Console (requires API account with credits)._
