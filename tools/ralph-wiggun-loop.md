@@ -9,7 +9,7 @@ Geoffrey Huntley on Twitter: https://x.com/GeoffreyHuntley
 
 ---
 
-## What It Is ?
+## What It Is
 
 **Ralph Wiggun Loop** is a technique for running Claude Code autonomously in a loop until a task is complete.
 
@@ -42,7 +42,7 @@ Instead of giving Claude one shot at a task and hoping it gets it right, you run
 
 ---
 
-## How to Use It ?
+## How to Use It
 
 ### Basic Bash Loop
 
