@@ -9,3 +9,9 @@
 - **Iterate and Refine** - start with a basic prompt, then refine based on results
 
 ## Advanced
+
+- **Use Chain of Thought** - ask Claude to think step-by-step for complex reasoning tasks
+- **Assign Roles and Expertise** - give Claude a specific persona or domain expertise for better context
+- **Specify Output Format** - define exact structure you need (JSON, tables, markdown, etc.)
+- **Provide Multiple Examples** - use few-shot learning with 2-3 examples for pattern recognition
+- **Set Clear Constraints** - explicitly state what to avoid, boundaries, and requirements
