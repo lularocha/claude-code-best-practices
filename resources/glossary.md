@@ -29,3 +29,6 @@ A document describing features and functionality of a product
 
 **UI - User Interface**<br>
 The visual elements through which users interact with software
+
+**NPM - Node Package Module**<br>
+`/npm` is a command line to install, share, and manage JavaScript code dependencies
