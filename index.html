@@ -917,6 +917,10 @@
                 const html = marked.parse(markdown);
                 content.innerHTML = html;
 
+                // Scroll to top when navigating to a new page
+                content.scrollTop = 0;
+                window.scrollTo(0, 0);
+
                 // Make external links open in new tab
                 content.querySelectorAll('a[href^="http"]').forEach(link => {
                     link.setAttribute('target', '_blank');
