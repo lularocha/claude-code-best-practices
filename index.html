@@ -227,6 +227,12 @@
             padding: 1rem 0.75rem 0.5rem 0;
             margin-left: 0.75rem;
             margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .sidebar-header a {
+            text-decoration: none;
+            color: inherit;
         }
 
         .sidebar-header h1 {
@@ -384,6 +390,12 @@
                 position: sticky;
                 top: 0;
                 z-index: 100;
+                cursor: pointer;
+            }
+
+            header a {
+                text-decoration: none;
+                color: inherit;
             }
 
             .header-content {
@@ -692,10 +704,12 @@
 <body>
     <!-- Mobile Header -->
     <header>
-        <div class="header-content">
-            <h1><span class="h1cc">Claude Code</span> <span class="h1bp">Best Practices</span></h1>
-        </div>
-        <h2>Lula Rocha + Claude</h2>
+        <a href="#home/home.md">
+            <div class="header-content">
+                <h1><span class="h1cc">Claude Code</span> <span class="h1bp">Best Practices</span></h1>
+            </div>
+            <h2>Lula Rocha + Claude</h2>
+        </a>
     </header>
 
     <!-- Hamburger Button for Mobile -->
@@ -723,8 +737,10 @@
     <div class="container">
         <aside class="sidebar">
             <div class="sidebar-header">
-                <h1><span class="h1cc">Claude Code</span><br><span class="h1bp">Best Practices</span></h1>
-                <h2>Lula Rocha + Claude</h2>
+                <a href="#home/home.md">
+                    <h1><span class="h1cc">Claude Code</span><br><span class="h1bp">Best Practices</span></h1>
+                    <h2>Lula Rocha + Claude</h2>
+                </a>
             </div>
             <nav class="sidebar-nav" id="sidebar-nav">
                 <!-- Will be populated dynamically by JavaScript -->
