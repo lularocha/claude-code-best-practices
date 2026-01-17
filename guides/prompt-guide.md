@@ -1,6 +1,6 @@
 # Working with Prompts
 
-Effective prompting is the foundation of successful collaboration with Claude. The quality of your prompts directly impacts the quality of Claude's responses. This guide covers essential techniques for crafting clear, effective prompts that get you the results you need.
+Effective prompting is the foundation of successful collaboration with Claude. The quality of your prompts directly impacts the quality of Claude's responses. 
 
 ## Fundamentals
 
