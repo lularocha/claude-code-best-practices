@@ -2,7 +2,7 @@
 
 ## Anthropic
 
-The best place to start learning is at the **[Claude Code Documentation](https://code.claude.com/docs/en/overview)** website
+The best place to start learning is at the **[Claude Code Documentation](https://code.claude.com/docs/en/overview)** website.
 
 ---
 
