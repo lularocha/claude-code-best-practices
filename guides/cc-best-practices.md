@@ -2,7 +2,7 @@
 
 ## Fundamentals
 
-### Talk to Claude Like a Colleague
+### Talk to Claude like a colleague
 
 Think of Claude Code as a conversation with an intelligent colleague, not just a tool. Before accepting any answer, ask for clarification or have Claude ask you questions to ensure you both have a clear understanding of the task and the plan to accomplish it. Just like discussing a project with a coworker, back-and-forth dialogue leads to better outcomes.
 
@@ -12,11 +12,11 @@ CLAUDE.md is a markdown file that Claude automatically reads at the start of eac
 
 For more information on creating and structuring CLAUDE.md files, see the [CLAUDE.md Guide](claude-md-guide.md).
 
-### Be Specific
+### Be specific
 
 Clear, detailed instructions get better results. Instead of vague requests like "make it better," describe exactly what you want: the behavior, the constraints, the expected output. The more context you provide upfront, the less back-and-forth you'll need.
 
-### Use Visuals
+### Use visuals
 
 Paste screenshots directly into your conversation for UI and design work. Claude can analyze images to understand layouts, identify issues, or implement designs. This is especially useful when describing visual bugs or mocking up new features.
 
@@ -31,7 +31,7 @@ Start complex tasks with `/plan` to think through the approach before writing co
 
 Connect your project folder as a Git repository. This enables Claude to create branches, commit changes, open pull requests, and review code through natural conversation. Version control provides a safety net—you can easily revert changes if something goes wrong and track the evolution of your project over time.
 
-### Verify Your Work
+### Verify your work
 
 After completing a section or significant work, ask Claude to verify everything. Review the changes yourself before moving on. A useful prompt:
 
@@ -43,7 +43,7 @@ Consider creating a slash command for this verification task to run it regularly
 
 Use the `/clear` command to reset context between unrelated tasks. This prevents confusion from previous conversations bleeding into new ones and keeps Claude focused on the current task.
 
-### Start Small and Iterate
+### Start small and iterate
 
 Build incrementally rather than trying to implement everything at once. Start with a minimal working version, verify it works, then add features one at a time. This approach makes debugging easier and ensures each piece works before adding complexity.
 
@@ -60,7 +60,7 @@ Slash commands automate repetitive tasks and save significant time. Ask Claude t
 
 Commands can be global or project-specific depending on your needs.
 
-### Use Git Workflows
+### Use Git workflows
 
 Beyond basic commits, leverage full Git workflows: feature branches for isolation, pull requests for code review, and meaningful commit messages for history. Claude can help manage these workflows conversationally, making version control more accessible.
 
@@ -72,7 +72,7 @@ Model Context Protocol (MCP) servers connect Claude to external tools and data s
 
 Skills are specialized instruction sets that extend Claude's capabilities for specific tasks. They provide domain expertise and workflows that go beyond general coding assistance, such as PR reviews, documentation generation, or framework-specific patterns.
 
-### Multi-Claude Workflows
+### Multi-Claude workflows
 
 Run parallel Claude instances for complex work. Use one instance for planning, another for implementation, or split work across different parts of a codebase. This approach helps maintain focus and can speed up larger projects.
 
