@@ -3,7 +3,6 @@
 ## Fundamentals
 
 - **Talk to Claude Like a Colleague** - foundational mindset
-- **[Use CLAUDE.md](../guides/claude-md-guide.md)** - define instructions and project context
 - **Be Specific** - clear, detailed instructions get better results
 - **Use Visuals** - paste screenshots for UI and design work
 - **Use Plan Mode** - plan with Claude before coding
@@ -11,6 +10,7 @@
 - **Verify Your Work** - test and review before moving on
 - **Use** `/clear` - to reset context between unrelated tasks
 - **Start Small & Iterate** - build incrementally
+- **[Use CLAUDE.md](../guides/claude-md-guide.md)** - define instructions and project context
 
 ## Advanced
 
